@@ -6,8 +6,15 @@ body {
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover; 
-
+    background-attachment: fixed; /* Background doesn't scroll with content */
 }
+
+#home, #about, #portfolio, #contact, footer{
+    border-style: solid;
+    border-color: pink;
+    height: 80vh;
+}
+
 
 /*------------------------------------------------------------
   -                        LAYOUT                            -
@@ -40,14 +47,20 @@ footer { grid-area: footer; }
 /*------------------------------------------------------------
   -                        NAV                               -
   ------------------------------------------------------------ */
+header {
+    position: fixed; /* Funkar i exempell med sticky. Måste ha JS för att det ska funka?? */
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+    width: 100%;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
+    x
+    
 }
 li {
     float: right;
@@ -70,11 +83,17 @@ li a {
     -                        HOME                              -
     ------------------------------------------------------------ */
 
+#home {
+    border-style: solid;
+    border-color: pink;
+}
 
   /*------------------------------------------------------------
     -                        ABOUT                             -
     ------------------------------------------------------------ */
+#about {
 
+}
 
   /*------------------------------------------------------------
     -                        PORTFOLIO                         -

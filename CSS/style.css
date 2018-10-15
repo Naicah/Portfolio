@@ -14,6 +14,10 @@ body {
     border-color: pink;
     height: 80vh;
 }
+#portfolio div, #portfolio h1 {
+    border-style: solid;
+    border-color: rgb(250, 117, 139);
+}
 
 
 /*------------------------------------------------------------
@@ -26,15 +30,27 @@ header { grid-area: header; }
 #contact { grid-area: contact; }
 footer { grid-area: footer; }
 
-.grid-container {
-  grid-template-areas:
-    'header'
-    'home'
-    'about'
-    'portolio'
-    'contact'
-    'footer';
+#h1_portfolio { grid-area: h1_portfolio; }
+#portfolio_ex1 { grid-area: portfolio_ex1; }
+#portfolio_ex2 { grid-area: portfolio_ex2; }
+#portfolio_ex3 { grid-area: portfolio_ex3; }
+
+.grid-container-body {
+    display: grid;
+    grid-template-areas:
+        'header'
+        'home'
+        'about'
+        'portolio'
+        'contact'
+        'footer';
 } 
+.grid-container-portfolio {
+    display: grid;
+    grid-template-areas:
+      'h1_portfolio h1_portfolio h1_portfolio'
+      'portfolio_ex1 portfolio_ex2 portfolio_ex3';
+  } 
 @media only screen and (max-width: 500px) {
     .item1 { grid-area: 1 / span 3 / 2 / 4; }
     .item2 { grid-area: 3 / 3 / 3 / 4; }
@@ -58,9 +74,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    x
-    
+    overflow: hidden;   
 }
 li {
     float: right;
@@ -99,7 +113,9 @@ li a {
     -                        PORTFOLIO                         -
     ------------------------------------------------------------ */
 
-
+#portfolio {
+    padding: 10vh 0;
+}
 
 
   /*------------------------------------------------------------

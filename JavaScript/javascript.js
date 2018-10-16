@@ -40,25 +40,43 @@ document.getElementById('nav_contact').addEventListener('click', function () {
     activeNav(nav_contact);
 })
 
+//Check where top position is and change highlight in nav accordingly
 function changeActivNavOnScroll() {
-    if (scrollTop_win >= scrollTop_contact) {
+    if (scrollTop_win >= scrollTop_contact) { //Within contact section
         activeNav(nav_contact);
-    } else if (scrollTop_win >= scrollTop_portfolio) {
+    } else if (scrollTop_win >= scrollTop_portfolio) { //Within portfolio section
         activeNav(nav_portfolio);
-    }  else if (scrollTop_win >= scrollTop_about) {
+    }  else if (scrollTop_win >= scrollTop_about) { //Within about section
         activeNav(nav_about);
-    } else {
+    } else { //Within home section
         activeNav(nav_home);
         nav_home.classList.remove("active");
     }
 }
 
-
 // When the user scrolls the page
 window.onscroll = function() {
-    scrollTop_win = document.documentElement.scrollTop;
-    changeActivNavOnScroll();
+    scrollTop_win = document.documentElement.scrollTop; //Find top position
+    changeActivNavOnScroll(); // Change wgat section in nav that is highlighted
 };
 
+/*------------------------------------------------------------
+  -                        HOME                              -
+  ------------------------------------------------------------ */
 
 
+
+function moveLogo() {
+    var logo = document.getElementById("animate"); 
+    var pos = 0;
+    var id = setInterval(frame, 5);
+    function frame() {
+        if (pos == 350) {
+            clearInterval(id);
+        } else {
+            pos++; 
+            elem.style.top = pos + 'px'; 
+            elem.style.left = pos + 'px'; 
+        }
+    }
+}

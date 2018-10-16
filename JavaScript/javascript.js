@@ -3,10 +3,11 @@ var about = document.getElementById("about");
 var portfolio = document.getElementById("portfolio");
 var contact = document.getElementById("contact");
 
-var offset_home = home.offsetTop;
-var offset_about = about.offsetTop;
-var offset_portfolio = portfolio.offsetTop;
-var offset_contact = contact.offsetTop;
+var scrollTop_win;
+var scrollTop_home = home.offsetTop;
+var scrollTop_about = about.offsetTop;
+var scrollTop_portfolio = portfolio.offsetTop;
+var scrollTop_contact = contact.offsetTop;
 
 var nav_about = document.getElementById("nav_about");
 var nav_portfolio = document.getElementById("nav_portfolio");
@@ -44,31 +45,35 @@ document.getElementById('nav_contact').addEventListener('click', function () {
 
 
 function changeActivNavOnScroll() {
-    if (window.pageYOffset >= offset_home) {
-       console.log("Toppen av home");
-       console.log(offset_home)
-    } else if (window.pageYOffset = offset_about) {
-        console.log("Toppen av about");
-        console.log(offset_about)
-        active_nav_new = nav_about;
-        activeNav(nav_about);
-    } else if (window.pageYOffset = offset_portfolio) {
-        console.log("Toppen av portfolio");
-        console.log(offset_portfolio)
-        active_nav_new = nav_portfolio;
-        activeNav(nav_portfolio);
-    }  else if (window.pageYOffset = offset_contact) {
-        console.log(offset_contact)
-        console.log("Toppen av contact");
+    console.log("Koll ändra active");
+    if (scrollTop_win >= scrollTop_contact) {
+        console.log("Toppen av contact: " + scrollTop_contact);
         active_nav_new = nav_contact;
         activeNav(nav_contact);
+    } else if (scrollTop_win >= scrollTop_portfolio) {
+        console.log("Toppen av portfolio: " + scrollTop_portfolio);
+        active_nav_new = nav_portfolio;
+        activeNav(nav_portfolio);
+    }  else if (scrollTop_win >= scrollTop_about) {
+        console.log("Toppen av about: " + scrollTop_about);
+        active_nav_new = nav_about;
+        activeNav(nav_about);
+    } else if (scrollTop_win >= scrollTop_home) {
+       console.log("Toppen av home: " + scrollTop_home);
+    
+    
     }
 }
 
 
 // When the user scrolls the page
 window.onscroll = function() {
-    console.log("Scrolling: " + window.pageYOffset)
+    scrollTop_win = document.documentElement.scrollTop;
+    console.log("Scrolling: " + scrollTop_win)
+    /*console.log("Home: " + home.offsetTop)
+    console.log("About: " + about.offsetTop)
+    console.log("Portfolio: " + portfolio.offsetTop)
+    console.log("Contact: " + contact.offsetTop)*/
     changeActivNavOnScroll()
 
 };

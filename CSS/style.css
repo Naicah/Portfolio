@@ -1,5 +1,5 @@
 body {
-    background-image: url("/media/white_marble.jpg"); 
+    background-image: url("/media/white_marble_blacklines.jpg"); 
     background-color: #cccccc; /* Used if the image is unavailable */
     max-width: 100%; /* Never bigger than original img */
     height: 100vh; /* Fill whole viewpoint */
@@ -69,6 +69,13 @@ header {
     top: 0;
     width: 100%;
 }
+#nav {
+    display: grid;
+    justify-content: space-between;
+}
+#logo {
+    max-width: 50vw;
+}
 
 ul {
     list-style-type: none;
@@ -76,9 +83,7 @@ ul {
     padding: 0;
     overflow: hidden;   
 }
-li {
-    float: right;
-}
+
 li a {
     display: block;
     color: rgb(190, 109, 127);

@@ -13,16 +13,16 @@
 
 <body class="grid-container-body">
     <header>
-        <section id="nav">
-            <div id="nav_home">
-                <img id="logo" src="/media/marble_squares_goldline.jpg" alt="Logo">
-            </div>
+        <div id="nav_home">
+            <img id="logo" src="/media/marble_squares_goldline.jpg" alt="Logo">
+        </div>
+        <div id="nav_sections">
             <ul>
                 <li id="nav_about"><a class="uppercase" href="#about">About</a></li>
                 <li id="nav_portfolio"><a class="uppercase" href="#portfolio">Portfolio</a></li>
                 <li id="nav_contact"><a class="uppercase" href="#contact">Contact</a></li>
             </ul>
-        </section>
+         </div>
     </header>
 
     <main>
@@ -49,6 +49,26 @@
 
         <section id="contact">
             <h1>Contact</h1>
+
+            <form action="">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name..">
+                        
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email..">
+                
+                <label for="phone">Phone number</label>
+                <input type="number" id="phone" name="phonenumber" placeholder="Your phone number..">
+            
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Subject of the matter.." >
+                
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="What would you like to discuss.." ></textarea>
+            
+                <input type="submit" value="Send">
+            
+                </form>
         </section>
     </main>
 

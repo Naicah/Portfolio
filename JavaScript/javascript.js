@@ -57,7 +57,7 @@ function changeActivNavOnScroll() {
 // When the user scrolls the page
 window.onscroll = function() {
     scrollTop_win = document.documentElement.scrollTop; //Find top position
-    changeActivNavOnScroll(); // Change wgat section in nav that is highlighted
+    changeActivNavOnScroll(); // Change what section in nav that is highlighted
 };
 
 /*------------------------------------------------------------

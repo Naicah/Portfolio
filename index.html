@@ -48,10 +48,10 @@
         </section>
 
         <section id="contact">
-            <div id="contact_form">
-                <h1>Contact</h1>
-
-                <form action="">
+            <h1>Contact</h1>
+                
+            <form  id="contact_form" action="">
+                <div id="form_left">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="Your name..">
                             
@@ -60,17 +60,18 @@
                     
                     <label for="phone">Phone number</label>
                     <input type="number" id="phone" name="phonenumber" placeholder="Your phone number..">
-                
+                </div>  
+                <div id="form_right">
                     <label for="subject">Subject</label>
                     <input type="text" id="subject" name="subject" placeholder="Subject of the matter.." >
                     
                     <label for="message">Message</label>
                     <textarea id="message" name="message" placeholder="What would you like to discuss.." ></textarea>
-                
+                </div>
+                <div id="send_contact_form">
                     <input type="submit" value="Send">
-                
-                </form>
-            </div>
+                </div>
+            </form>
         </section>
     </main>
 

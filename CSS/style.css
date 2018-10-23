@@ -68,8 +68,8 @@ footer { grid-area: footer; }
   -                        NAV                               -
   ------------------------------------------------------------ */
  
-  header {
-    position: fixed; /* Funkar i exempell med sticky. Måste ha JS för att det ska funka?? */
+header {
+    position: fixed; /* Funkar i exempel med sticky. Måste ha JS för att det ska funka?? */
     position: -webkit-sticky; /* Safari */
     top: 0;
     width: 100%;
@@ -135,10 +135,24 @@ li a {
   /*------------------------------------------------------------
     -                        CONTACT                           -
     ------------------------------------------------------------ */
+h1 {
+    text-align: center;
+}
+#form_left { grid-area: form_left; }
+#form_right { grid-area: form_right; }
+#send_contact_form { grid-area: send_contact_form; } 
+
 #contact_form {
     background-color: #f2f2f2;
     padding: 20px;
+    max-width: 70vw;
+    margin: auto;
+    display: grid;
+    grid-template-areas: 'form_left form_right .' ' . send_contact_form .';
+    grid-gap: 10px;
+    justify-content: center;
 }
+
 input[type=text], [type=email], [type=number], select, textarea {
     width: 90%; 
     padding: 12px;
@@ -147,12 +161,17 @@ input[type=text], [type=email], [type=number], select, textarea {
     margin-bottom: 16px;
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
+textarea {
+    min-height: 40%;
+}
 input[type=submit] {
     background-color: rgb(219, 157, 170);
     color: white;
     padding: 12px 20px;
     border: none;
     cursor: pointer;
+    max-width: 30%;
+    
 }
 input[type=submit]:hover {
     background-color: rgb(190, 109, 127);

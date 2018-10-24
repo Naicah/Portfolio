@@ -29,7 +29,7 @@ html {
     border-color: pink;
     min-height: 80vh;
 }
-#portfolio div, #portfolio h1 {
+#portfolio div {
     border-style: solid;
     border-color: rgb(250, 117, 139);
 }
@@ -37,7 +37,7 @@ html {
 
 
 /*------------------------------------------------------------
-  -                        LAYOUT                            -
+  -                     MAIN LAYOUT                          -
   ------------------------------------------------------------ */
 header { grid-area: header; }
 #home { grid-area: home; }
@@ -46,10 +46,7 @@ header { grid-area: header; }
 #contact { grid-area: contact; }
 footer { grid-area: footer; }
 
-#h1_portfolio { grid-area: h1_portfolio; }
-#portfolio_ex1 { grid-area: portfolio_ex1; }
-#portfolio_ex2 { grid-area: portfolio_ex2; }
-#portfolio_ex3 { grid-area: portfolio_ex3; }
+
 
 .grid-container-body {
     display: grid;
@@ -61,12 +58,7 @@ footer { grid-area: footer; }
         'contact'
         'footer';
 } 
-.grid-container-portfolio {
-    display: grid;
-    grid-template-areas:
-      'h1_portfolio h1_portfolio h1_portfolio'
-      'portfolio_ex1 portfolio_ex2 portfolio_ex3';
-  } 
+
 @media only screen and (max-width: 500px) {
     .item1 { grid-area: 1 / span 3 / 2 / 4; }
     .item2 { grid-area: 3 / 3 / 3 / 4; }
@@ -160,9 +152,27 @@ li a {
     -                        PORTFOLIO                         -
     ------------------------------------------------------------ */
 
+#portfolio_text { grid-area: portfolio_text;}
+#portfolio_ex1 { grid-area: portfolio_ex1; }
+#portfolio_ex2 { grid-area: portfolio_ex2; }
+#portfolio_ex3 { grid-area: portfolio_ex3; }
+
+
+.grid-container-portfolio {
+display: grid;
+grid-template-areas:
+    'portfolio_text portfolio_text portfolio_text'
+    'portfolio_ex1 portfolio_ex2 portfolio_ex3';
+} 
 #portfolio {
     padding: 10vh 0;
 }
+#portfolio p {
+    max-width: 80vw;
+    text-align: center;
+    margin: auto;
+}
+
 
 
   /*------------------------------------------------------------

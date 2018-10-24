@@ -10,10 +10,19 @@ body {
     background-repeat: no-repeat; 
     background-size: cover; 
     background-attachment: fixed; /* Background doesn't scroll with content */
-    
 }
 html {
     scroll-behavior: smooth;
+}
+.background-opacity {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    opacity: 0.2;
+    z-index: -1;
 }
 #home, #about, #portfolio, #contact, footer{
     border-style: solid;
@@ -125,6 +134,29 @@ li a {
 #about {
 
 }
+/*a:link {
+    color: green; 
+    background-color: transparent; 
+    text-decoration: none;
+}
+
+a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}*/
 
   /*------------------------------------------------------------
     -                        PORTFOLIO                         -

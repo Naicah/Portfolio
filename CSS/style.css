@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box; 
+}
 body {
     background-image: url("/media/white_marble_blacklines.jpg"); 
     background-color: #cccccc; /* Used if the image is unavailable */
@@ -7,7 +10,7 @@ body {
     background-repeat: no-repeat; 
     background-size: cover; 
     background-attachment: fixed; /* Background doesn't scroll with content */
-    box-sizing: border-box; 
+    
 }
 html {
     scroll-behavior: smooth;
@@ -139,8 +142,12 @@ h1 {
     text-align: center;
 }
 #form_left { grid-area: form_left; }
-#form_right { grid-area: form_right; }
-#send_contact_form { grid-area: send_contact_form; } 
+#form_right { grid-area: form_right; justify-content: center; }
+#send_contact_form { 
+    grid-area: send_contact_form; 
+    display: grid; 
+    justify-content: center; 
+} 
 
 #contact_form {
     background-color: #f2f2f2;
@@ -148,13 +155,12 @@ h1 {
     max-width: 70vw;
     margin: auto;
     display: grid;
-    grid-template-areas: 'form_left form_right .' ' . send_contact_form .';
-    grid-gap: 10px;
-    justify-content: center;
+    grid-template-areas: 'form_left form_left form_right form_right form_right' ' send_contact_form send_contact_form send_contact_form send_contact_form send_contact_form';
+    grid-gap: 20px;
+    justify-content: space-between;
 }
-
 input[type=text], [type=email], [type=number], select, textarea {
-    width: 90%; 
+    width: 100%;
     padding: 12px;
     border: 1px solid white;
     margin-top: 6px; 
@@ -170,8 +176,6 @@ input[type=submit] {
     padding: 12px 20px;
     border: none;
     cursor: pointer;
-    max-width: 30%;
-    
 }
 input[type=submit]:hover {
     background-color: rgb(190, 109, 127);

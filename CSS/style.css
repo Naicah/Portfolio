@@ -27,7 +27,7 @@ html {
 #home, #about, #portfolio, #contact, footer{
     border-style: solid;
     border-color: pink;
-    height: 80vh;
+    min-height: 80vh;
 }
 #portfolio div, #portfolio h1 {
     border-style: solid;
@@ -134,29 +134,27 @@ li a {
 #about {
 
 }
-/*a:link {
-    color: green; 
+#about_quote {
+
+}
+#about_text {
+    max-width: 80vw;
+    margin: auto;
+}
+#about a:link, #about a:visited {
+    color: rgb(219, 157, 170); 
     background-color: transparent; 
     text-decoration: none;
 }
 
-a:visited {
-    color: pink;
-    background-color: transparent;
-    text-decoration: none;
-}
 
-a:hover {
-    color: red;
-    background-color: transparent;
+#about a:hover, #about a:active {
+    color: rgb(190, 109, 127);
     text-decoration: underline;
 }
-
-a:active {
-    color: yellow;
-    background-color: transparent;
-    text-decoration: underline;
-}*/
+#about_contact {
+  
+}
 
   /*------------------------------------------------------------
     -                        PORTFOLIO                         -

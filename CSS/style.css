@@ -155,7 +155,10 @@ h1 {
     max-width: 70vw;
     margin: auto;
     display: grid;
-    grid-template-areas: 'form_left form_left form_right form_right form_right' ' send_contact_form send_contact_form send_contact_form send_contact_form send_contact_form';
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: 
+    'form_left form_right'
+    'send_contact_form send_contact_form';
     grid-gap: 20px;
     justify-content: space-between;
 }
@@ -176,6 +179,7 @@ input[type=submit] {
     padding: 12px 20px;
     border: none;
     cursor: pointer;
+    align-self: center;
 }
 input[type=submit]:hover {
     background-color: rgb(190, 109, 127);

@@ -192,7 +192,10 @@ li a {
     max-width: 70vw;
     margin: auto;
     display: grid;
-    grid-template-areas: 'form_left form_left form_right form_right form_right' ' send_contact_form send_contact_form send_contact_form send_contact_form send_contact_form';
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: 
+    'form_left form_right'
+    'send_contact_form send_contact_form';
     grid-gap: 20px;
     justify-content: space-between;
 }
@@ -205,7 +208,7 @@ input[type=text], [type=email], [type=number], select, textarea {
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 textarea {
-    min-height: 40%;
+    min-height: 50%;
 }
 input[type=submit] {
     background-color: rgb(219, 157, 170);
@@ -213,6 +216,7 @@ input[type=submit] {
     padding: 12px 20px;
     border: none;
     cursor: pointer;
+    align-self: center;
 }
 input[type=submit]:hover {
     background-color: rgb(190, 109, 127);

@@ -24,12 +24,7 @@ html {
     opacity: 0.2;
     z-index: -1;
 }
-#home, #about, #portfolio, #contact, footer{
-    border-style: solid;
-    border-color: pink;
-    min-height: 80vh;
-    
-}
+
 #portfolio div {
     border-style: solid;
     border-color: rgb(250, 117, 139);

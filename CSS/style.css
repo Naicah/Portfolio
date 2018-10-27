@@ -28,13 +28,20 @@ html {
     border-style: solid;
     border-color: pink;
     min-height: 80vh;
+    
 }
 #portfolio div, #portfolio h1 {
     border-style: solid;
     border-color: rgb(250, 117, 139);
 }
-
-
+#about,#portfolio, #contact {
+    display: grid;
+}
+.header_svg {
+    max-height:60vh;
+    max-width:80vw;
+    margin: 10vh auto;
+}
 
 /*------------------------------------------------------------
   -                        LAYOUT                            -
@@ -131,9 +138,8 @@ li a {
   /*------------------------------------------------------------
     -                        ABOUT                             -
     ------------------------------------------------------------ */
-#about {
 
-}
+
 #about_quote {
 
 }
@@ -168,8 +174,9 @@ li a {
   /*------------------------------------------------------------
     -                        CONTACT                           -
     ------------------------------------------------------------ */
-h1 {
-    text-align: center;
+
+#contact .header_svg {
+    max-height: 45vh;
 }
 #form_left { grid-area: form_left; }
 #form_right { grid-area: form_right; justify-content: center; }

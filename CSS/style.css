@@ -29,7 +29,7 @@ html {
     border-style: solid;
     border-color: rgb(250, 117, 139);
 }
-#about,#portfolio, #contact {
+#home, #about,#portfolio, #contact {
     display: grid;
 }
 .header_svg {
@@ -121,6 +121,7 @@ li a {
 #home {
     height: 100vh;
 }
+
 
   /*------------------------------------------------------------
     -                        ABOUT                             -

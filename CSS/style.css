@@ -205,10 +205,10 @@ input[type=text], [type=email], [type=number], select, textarea {
     border: 1px solid white;
     margin-top: 6px; 
     margin-bottom: 16px;
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 textarea {
     min-height: 40%;
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 input[type=submit] {
     background-color: rgb(219, 157, 170);
@@ -216,7 +216,7 @@ input[type=submit] {
     padding: 12px 20px;
     border: none;
     cursor: pointer;
-}
+    }
 input[type=submit]:hover {
     background-color: rgb(190, 109, 127);
 }

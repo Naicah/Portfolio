@@ -24,17 +24,12 @@ html {
     opacity: 0.2;
     z-index: -1;
 }
-#home, #about, #portfolio, #contact, footer{
-    border-style: solid;
-    border-color: pink;
-    min-height: 80vh;
-    
-}
-#portfolio div, #portfolio h1 {
+
+#portfolio div {
     border-style: solid;
     border-color: rgb(250, 117, 139);
 }
-#about,#portfolio, #contact {
+#home, #about,#portfolio, #contact {
     display: grid;
 }
 .header_svg {
@@ -44,7 +39,7 @@ html {
 }
 
 /*------------------------------------------------------------
-  -                        LAYOUT                            -
+  -                     MAIN LAYOUT                          -
   ------------------------------------------------------------ */
 header { grid-area: header; }
 #home { grid-area: home; }
@@ -53,10 +48,7 @@ header { grid-area: header; }
 #contact { grid-area: contact; }
 footer { grid-area: footer; }
 
-#h1_portfolio { grid-area: h1_portfolio; }
-#portfolio_ex1 { grid-area: portfolio_ex1; }
-#portfolio_ex2 { grid-area: portfolio_ex2; }
-#portfolio_ex3 { grid-area: portfolio_ex3; }
+
 
 .grid-container-body {
     display: grid;
@@ -68,12 +60,7 @@ footer { grid-area: footer; }
         'contact'
         'footer';
 } 
-.grid-container-portfolio {
-    display: grid;
-    grid-template-areas:
-      'h1_portfolio h1_portfolio h1_portfolio'
-      'portfolio_ex1 portfolio_ex2 portfolio_ex3';
-  } 
+
 @media only screen and (max-width: 500px) {
     .item1 { grid-area: 1 / span 3 / 2 / 4; }
     .item2 { grid-area: 3 / 3 / 3 / 4; }
@@ -135,6 +122,7 @@ li a {
     height: 100vh;
 }
 
+
   /*------------------------------------------------------------
     -                        ABOUT                             -
     ------------------------------------------------------------ */
@@ -166,9 +154,27 @@ li a {
     -                        PORTFOLIO                         -
     ------------------------------------------------------------ */
 
+#portfolio_text { grid-area: portfolio_text;}
+#portfolio_ex1 { grid-area: portfolio_ex1; }
+#portfolio_ex2 { grid-area: portfolio_ex2; }
+#portfolio_ex3 { grid-area: portfolio_ex3; }
+
+
+.grid-container-portfolio {
+display: grid;
+grid-template-areas:
+    'portfolio_text portfolio_text portfolio_text'
+    'portfolio_ex1 portfolio_ex2 portfolio_ex3';
+} 
 #portfolio {
     padding: 10vh 0;
 }
+#portfolio p {
+    max-width: 80vw;
+    text-align: center;
+    margin: auto;
+}
+
 
 
   /*------------------------------------------------------------
@@ -192,7 +198,10 @@ li a {
     max-width: 70vw;
     margin: auto;
     display: grid;
-    grid-template-areas: 'form_left form_left form_right form_right form_right' ' send_contact_form send_contact_form send_contact_form send_contact_form send_contact_form';
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: 
+    'form_left form_right'
+    'send_contact_form send_contact_form';
     grid-gap: 20px;
     justify-content: space-between;
 }
@@ -202,10 +211,10 @@ input[type=text], [type=email], [type=number], select, textarea {
     border: 1px solid white;
     margin-top: 6px; 
     margin-bottom: 16px;
-    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 textarea {
     min-height: 40%;
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 input[type=submit] {
     background-color: rgb(219, 157, 170);
@@ -213,7 +222,9 @@ input[type=submit] {
     padding: 12px 20px;
     border: none;
     cursor: pointer;
+    align-self: center;
 }
+    }
 input[type=submit]:hover {
     background-color: rgb(190, 109, 127);
 }

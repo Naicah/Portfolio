@@ -126,15 +126,45 @@ li a {
   /*------------------------------------------------------------
     -                        ABOUT                             -
     ------------------------------------------------------------ */
+#about {
 
+}
 
 #about_quote {
 
 }
 #about_text {
-    max-width: 80vw;
-    margin: auto;
+    max-width:30vw;
+    background-image: url("/media/hexagon_metalic_pink_cut.svg");
+    min-width:60vw;
+     /* height: 100vh; */
+     background-position: right; 
+     background-repeat: no-repeat; 
+     background-size: contain; 
+    overflow: hidden;
 }
+
+#about_img_div {
+    
+    max-width: 30vw;
+}
+#about_text div {
+   right: 0;
+    margin: 8vw 1vw 8vw auto;
+   max-width: 37%;
+   text-align: justify;
+   
+}
+/*#about_text div {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    text-align: center;
+    font-size: 18px;
+    max-width: 30vw;
+    
+
+}*/
 #about a:link, #about a:visited {
     color: rgb(219, 157, 170); 
     background-color: transparent; 

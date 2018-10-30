@@ -14,6 +14,13 @@ body {
 html {
     scroll-behavior: smooth;
 }
+.center-in-grid {
+    align-self: center;
+    justify-self: center; 
+}
+.mw-80p {
+    max-width: 80%;
+}
 .background-opacity {
     position: fixed;
     top: 0;
@@ -32,7 +39,7 @@ html {
 #home, #about,#portfolio, #contact {
     display: grid;
 }
-.header_svg {
+.header-svg {
     max-height:60vh;
     max-width:80vw;
     margin: 10vh auto;
@@ -82,10 +89,10 @@ header {
     display: flex;
     justify-content: space-between;
 }
-#nav_home {
+#nav-home {
     margin-left: 10vw;
 }
-#nav_sections {
+#nav-sections {
     margin-right: 10vw;
 }
 #logo {
@@ -126,36 +133,46 @@ li a {
   /*------------------------------------------------------------
     -                        ABOUT                             -
     ------------------------------------------------------------ */
-#about {
-
+#about-quote {grid-area: 1 / 2 / 3 / 4;}
+#about-text {grid-area: 2 / 4 / 6 / 7;}
+#about-contact {grid-area: 4 / 2 / 5 / 3;
 }
-
-#about_quote {
-
+.grid-container-about {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 20vh);
+    padding: 10px;
 }
-#about_text {
-    max-width:30vw;
-    background-image: url("/media/hexagon_metalic_pink_cut.svg");
-    min-width:60vw;
-     /* height: 100vh; */
-     background-position: right; 
-     background-repeat: no-repeat; 
-     background-size: contain; 
+#about-quote {
+    display: grid;
+    background-image: url("/media/hexagon_glitter_lightpink.svg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: contain;
+    overflow: visible;
+}
+#about-text {
+    display: grid;
+    background-image: url("/media/hexagon_metalic_pink.svg");
+    background-position: left; 
+    background-repeat: no-repeat; 
+    background-size: contain;
     overflow: hidden;
 }
 
-#about_img_div {
+/*#about-img-div {
     
     max-width: 30vw;
 }
-#about_text div {
+#about-text div {
    right: 0;
     margin: 8vw 1vw 8vw auto;
    max-width: 37%;
    text-align: justify;
    
 }
-/*#about_text div {
+#about-text div {
     position: absolute;
     right: 0;
     top: 50%;
@@ -176,7 +193,7 @@ li a {
     color: rgb(190, 109, 127);
     text-decoration: underline;
 }
-#about_contact {
+#about-contact {
   
 }
 
@@ -184,17 +201,17 @@ li a {
     -                        PORTFOLIO                         -
     ------------------------------------------------------------ */
 
-#portfolio_text { grid-area: portfolio_text;}
-#portfolio_ex1 { grid-area: portfolio_ex1; }
-#portfolio_ex2 { grid-area: portfolio_ex2; }
-#portfolio_ex3 { grid-area: portfolio_ex3; }
+#portfolio-text { grid-area: portfolio-text;}
+#portfolio-ex1 { grid-area: portfolio-ex1; }
+#portfolio-ex2 { grid-area: portfolio-ex2; }
+#portfolio-ex3 { grid-area: portfolio-ex3; }
 
 
 .grid-container-portfolio {
 display: grid;
 grid-template-areas:
-    'portfolio_text portfolio_text portfolio_text'
-    'portfolio_ex1 portfolio_ex2 portfolio_ex3';
+    'portfolio-text portfolio-text portfolio-text'
+    'portfolio-ex1 portfolio-ex2 portfolio-ex3';
 } 
 #portfolio {
     padding: 10vh 0;
@@ -214,21 +231,21 @@ grid-template-areas:
     max-width: 100vw;
 
 }
-#contact .header_svg {
+#contact .header-svg {
     max-height: 45vh;
 }
-#form_left { grid-area: form_left; }
-#form_right { grid-area: form_right; }
-#send_contact_form { 
-    grid-area: send_contact_form;
+#form-left { grid-area: form-left; }
+#form-right { grid-area: form-right; }
+#send-contact-form { 
+    grid-area: send-contact-form;
     display: grid;
     justify-content: center;
     } 
 
 
-#form_background {
+#form-background {
     position: relative;
-    /*background-image: url("/media/hexagon_pink.svg"); 
+    /*background-image: url("/media/hexagon-pink.svg"); 
     max-width: 80vw;
     background-position: center; 
     background-repeat: no-repeat; 
@@ -237,19 +254,19 @@ grid-template-areas:
     margin: auto;*/
  }
 
-#contact_form {
+#contact-form {
    
    
     /*align-content: space-around;*/
 }
-.hexagon_form {
+.hexagon-form {
     /*max-height: 90vh;*/
     min-width: 70vw;
     max-width: 90vw;
     display: block;
     margin: auto;
 }
-.form_inputs {
+.form-inputs {
     max-width: 50vw;
     position: absolute;
     left: 25%;
@@ -262,8 +279,8 @@ grid-template-areas:
     display: grid;
     grid-template-columns: 2fr 3fr;
     grid-template-areas: 
-    'form_left form_right'
-    'send_contact_form send_contact_form';
+    'form-left form-right'
+    'send-contact-form send-contact-form';
     grid-gap: 20px;
     align-content: center; */  
 }

@@ -9,10 +9,10 @@ var scrollTop_about = about.offsetTop;
 var scrollTop_portfolio = portfolio.offsetTop;
 var scrollTop_contact = contact.offsetTop;
 
-var nav_home = document.getElementById("nav_home");
-var nav_about = document.getElementById("nav_about");
-var nav_portfolio = document.getElementById("nav_portfolio");
-var nav_contact = document.getElementById("nav_contact");
+var nav_home = document.getElementById("nav-home");
+var nav_about = document.getElementById("nav-about");
+var nav_portfolio = document.getElementById("nav-portfolio");
+var nav_contact = document.getElementById("nav-contact");
 
 var active_nav_pre = nav_home;
 
@@ -30,13 +30,13 @@ var active_nav_pre = nav_home;
 }
 
 //When click on section in nav
-document.getElementById('nav_about').addEventListener('click', function () {
+document.getElementById('nav-about').addEventListener('click', function () {
     activeNav(nav_about);
 })
-document.getElementById('nav_portfolio').addEventListener('click', function () {
+document.getElementById('nav-portfolio').addEventListener('click', function () {
     activeNav(nav_portfolio);
 })
-document.getElementById('nav_contact').addEventListener('click', function () {
+document.getElementById('nav-contact').addEventListener('click', function () {
     activeNav(nav_contact);
 })
 

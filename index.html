@@ -14,89 +14,94 @@
 <body class="grid-container-body">
     <div class="background-opacity"></div>
     <header>
-        <div id="nav_home">
+        <div id="nav-home">
             <img id="logo" src="/media/" alt="Logo">
         </div>
-        <div id="nav_sections">
+        <div id="nav-sections">
             <ul>
-                <li id="nav_about"><a class="uppercase" href="#about">About</a></li>
-                <li id="nav_portfolio"><a class="uppercase" href="#portfolio">Portfolio</a></li>
-                <li id="nav_contact"><a class="uppercase" href="#contact">Contact</a></li>
+                <li id="nav-about"><a class="uppercase" href="#about">About</a></li>
+                <li id="nav-portfolio"><a class="uppercase" href="#portfolio">Portfolio</a></li>
+                <li id="nav-contact"><a class="uppercase" href="#contact">Contact</a></li>
             </ul>
          </div>
     </header>
 
     <main>
         <section id="home">
-            <img id="logo" src="/media/logo.svg" alt="Logo">
-        </section>
-
-        <section id="about">
-            <img class="header_svg" src="/media/about.svg" alt="About">
-
-            <div id="about_quote">
-                <p class="uppercase bold italic t-center">With vision and determination, <br> nothing is impossible</p>
-            </div>
-            <div id="about_text">
-               <!-- <div id="about_img_div">
-                    <img src="/media/hexagon_metalic_pink_cut.svg" alt="Hexagon">
-                 </div>-->
-                <div>
-                    <p> As a true <a href="https://www.16personalities.com/enfj-personality" target="_blank">PROTAGONIST (ENFJ-T)</a>
-                        I seriously believe this, which can sometimes be a bit dangerous. 
-                        Once I get exhited about something there is no stopping me. 
-                    </p>
-
-                    <p> I love to create, solve problems and, especially, help people.
-                        This comes in several forms, such as web development, dance, song, sewing, crafts and much much more.
-                        There is not a second that goes by without me working on or thinking about my projects or ideas of new projects.
-                        When I don't work on web development I teach dance or work on ways to help people.
-                    </p>
-
-                    <p>
-                        Before I knew how to develop websites and applications I used Excel to build the tools that I wanted, 
-                        which means that I (on my own) have learnt how use Excel in many different, and sometimes not the most common, ways.
-                        I, for example, built a 'program' for keeping track of work orders and work load in a big team.
-                        So as you can tell, I truly believe that everything is possible, you just have to find the right way.
-                    </p>
-                    <p>
-                        So weither you want help making an idea reality, update something existing or learn, I am here for you!
-                        I love to create, toss around ideas and teach. So weither it is something web based, excel, dance or even sewing that you have on your mind, let me know!
-                    </p>
-               </div>
-            </div>
-            <div id="about_contact" class="t-center">
-                <form action="#contact"> <!--Göra med JS istället?-->
-                    <input type="submit" value="Lets talk!" />
-                </form>
-            </div>
             
         </section>
 
+        <section id="about">
+            <img class="header-svg" src="/media/about.svg" alt="About">
+            
+            <div class="grid-container-about">
+                
+                <div id="about-quote">
+                    <div class="center-in-grid mw-80p">
+                        <p class="uppercase bold italic t-center">With vision and determination, <br> nothing is impossible</p>
+                    </div>
+                </div>
+           
+                <div id="about-text">
+                    <div class="left-in-grid mw-80p">
+                
+                        <p> As a true <a href="https://www.16personalities.com/enfj-personality" target="-blank">PROTAGONIST (ENFJ-T)</a>
+                            I seriously believe this, which can sometimes be a bit dangerous. 
+                            Once I get exhited about something there is no stopping me. 
+                        </p>
+
+                        <p> I love to create, solve problems and, especially, help people.
+                            This comes in several forms, such as web development, dance, song, sewing, crafts and much much more.
+                            There is not a second that goes by without me working on or thinking about my projects or ideas of new projects.
+                            When I don't work on web development I teach dance or work on ways to help people.
+                        </p>
+
+                        <p>
+                            Before I knew how to develop websites and applications I used Excel to build the tools that I wanted, 
+                            which means that I (on my own) have learnt how use Excel in many different, and sometimes not the most common, ways.
+                            I, for example, built a 'program' for keeping track of work orders and work load in a big team.
+                            So as you can tell, I truly believe that everything is possible, you just have to find the right way.
+                        </p>
+                        <p>
+                            So weither you want help making an idea reality, update something existing or learn, I am here for you!
+                            I love to create, toss around ideas and teach. So weither it is something web based, excel, dance or even sewing that you have on your mind, let me know!
+                        </p>
+                
+                
+                </div>
+
+                <div id="about-contact" class="t-center">
+                    <p>Lets talk</p>
+                </div>
+
+            </div>
+
+        </section>
+
         <section id="portfolio">
-                <img class="header_svg" src="/media/portfolio.svg" alt="Portfolio">
+                <img class="header-svg" src="/media/portfolio.svg" alt="Portfolio">
             <div class="grid-container-portfolio">
-                <div id="portfolio_ex1">
+                <div id="portfolio-ex1">
                     första
                 </div>
-                <div id="portfolio_ex2">
+                <div id="portfolio-ex2">
                     andra
                 </div>
-                <div id="portfolio_ex3">
+                <div id="portfolio-ex3">
                     tredje
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <img class="header_svg" src="/media/contact.svg" alt="Contact">
+            <img class="header-svg" src="/media/contact.svg" alt="Contact">
             
-            <div id="form_background"> 
-                <img class="hexagon_form" src="/media/hexagon_pink.svg" alt="Contact"> 
-                <div class="form_inputs"> 
-                    <form  id="contact_form" action="">
+            <div id="form-background"> 
+                <img class="hexagon-form" src="/media/hexagon_pink.svg" alt="Contact"> 
+                <div class="form-inputs"> 
+                    <form  id="contact-form" action="">
                     
-                        <!--<div id="form_left"> -->
+                        <!--<div id="form-left"> -->
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your name..">
                             
@@ -106,7 +111,7 @@
                             <label for="phone">Phone number</label>
                             <input type="number" id="phone" name="phonenumber" placeholder="Your phone number..">
                         <!--</div>  -->
-                        <!--<div id="form_right">-->
+                        <!--<div id="form-right">-->
                             <label for="subject">Subject</label>
                             <input type="text" id="subject" name="subject" placeholder="Subject of the matter.." >
                             
@@ -114,7 +119,7 @@
                             <textarea id="message" name="message" placeholder="What would you like to discuss.." ></textarea>
                         <!--</div>-->
                     
-                    <div id="send_contact_form">
+                    <div id="send-contact-form">
                         <input type="submit" value="Send">
                     </div>
                 

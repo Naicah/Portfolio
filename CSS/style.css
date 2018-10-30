@@ -172,36 +172,29 @@ li a {
     padding-right:5vw;
     max-width: 50%;
 }
-
-/*#about-img-div {
-    
-    max-width: 30vw;
+#about-contact {
+    display: grid;
+    background-image: url("/media/hexagon_glitter_pink.svg");
+    background-position: right; 
+    background-repeat: no-repeat; 
+    background-size: contain;
 }
-#about-text div {
-   right: 0;
-    margin: 8vw 1vw 8vw auto;
-   max-width: 37%;
-   text-align: justify;
-   
+#about-contact:hover { 
+    cursor: pointer;
 }
-#about-text div {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    text-align: center;
-    font-size: 18px;
-    max-width: 30vw;
-    
-
-}*/
-#about a:link, #about a:visited {
+#contact-link:link, #contact-link:visited, #contact-link:hover, #contact-link:active{
+    color: black; 
+    background-color: transparent; 
+    text-decoration: none;
+}
+#about-text a:link, #about-text a:visited {
     color: rgb(219, 157, 170); 
     background-color: transparent; 
     text-decoration: none;
 }
 
 
-#about a:hover, #about a:active {
+#about-text a:hover, #about-text a:active {
     color: rgb(190, 109, 127);
     text-decoration: underline;
 }

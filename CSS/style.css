@@ -15,11 +15,18 @@ html {
     scroll-behavior: smooth;
 }
 .center-in-grid {
-    align-self: center;
     justify-self: center; 
+    align-self: center;
+}
+.right-in-grid {
+    justify-self: right; 
+    align-self: center;
 }
 .mw-80p {
     max-width: 80%;
+}
+.mw-50p {
+    max-width: 50%;
 }
 .background-opacity {
     position: fixed;
@@ -154,11 +161,16 @@ li a {
 }
 #about-text {
     display: grid;
-    background-image: url("/media/hexagon_metalic_pink.svg");
-    background-position: left; 
+    background-image: url("/media/hexagon_metalic_pink_cut.svg");
+    background-position: right; 
     background-repeat: no-repeat; 
-    background-size: contain;
-    overflow: hidden;
+    background-size: auto;
+    overflow: visible;
+    margin: -10vh -5vw -10vh -10vw;
+}
+.about-text-container {
+    padding-right:5vw;
+    max-width: 50%;
 }
 
 /*#about-img-div {

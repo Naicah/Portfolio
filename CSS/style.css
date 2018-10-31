@@ -39,18 +39,18 @@ html {
     z-index: -1;
 }
 
-#portfolio div {
-    border-style: solid;
-    border-color: rgb(250, 117, 139);
-}
 #home, #about,#portfolio, #contact {
     display: grid;
 }
 .header-svg {
     max-height:60vh;
     max-width:80vw;
-    margin: 10vh auto;
+    margin: 30vh auto 10vh auto;
 }
+[class*="grid-container-"] {
+    display: grid;
+    grid-gap: 20px;
+  }  
 
 /*------------------------------------------------------------
   -                     MAIN LAYOUT                          -
@@ -62,10 +62,7 @@ header { grid-area: header; }
 #contact { grid-area: contact; }
 footer { grid-area: footer; }
 
-
-
 .grid-container-body {
-    display: grid;
     grid-template-areas:
         'header'
         'home'
@@ -145,8 +142,6 @@ li a {
 #about-contact {grid-area: 4 / 2 / 5 / 3;
 }
 .grid-container-about {
-    display: grid;
-    grid-gap: 20px;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(5, 20vh);
     padding: 10px;
@@ -204,26 +199,43 @@ li a {
     -                        PORTFOLIO                         -
     ------------------------------------------------------------ */
 
-#portfolio-text { grid-area: portfolio-text;}
-#portfolio-ex1 { grid-area: portfolio-ex1; }
-#portfolio-ex2 { grid-area: portfolio-ex2; }
-#portfolio-ex3 { grid-area: portfolio-ex3; }
+#portfolio-text { grid-area: 1 / 2 / 4 / 6;}
+#portfolio-ex1 { grid-area: 2 / 10 / 4 / 14; }
+#portfolio-ex2 { grid-area: 3 / 6 / 5 / 10; }
+#portfolio-ex3 { grid-area: 4 / 2 / 6 / 6; }
 
 
 .grid-container-portfolio {
-display: grid;
-grid-template-areas:
-    'portfolio-text portfolio-text portfolio-text'
-    'portfolio-ex1 portfolio-ex2 portfolio-ex3';
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(5, 20vh);
+    padding: 10px;
+
 } 
-#portfolio {
+#portfolio-text {
+    display: grid;
+    background-image: url("/media/hexagon_glitter_lightpink.svg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: contain;
+    overflow: visible;
+}
+#portfolio-ex1, #portfolio-ex2, #portfolio-ex3 {
+    display: grid;
+    background-image: url("/media/hexagon_metalic_pink.svg");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: contain;
+    overflow: visible;
+}
+
+/*#portfolio {
     padding: 10vh 0;
 }
 #portfolio p {
     max-width: 80vw;
     text-align: center;
     margin: auto;
-}
+}*/
 
 
 

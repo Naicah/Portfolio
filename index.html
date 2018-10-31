@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/css/style.css" type="text/css" rel="stylesheet">
     <link href="/css/text.css" type="text/css" rel="stylesheet">
+    <link href="/css/display.css" type="text/css" rel="stylesheet">
 
     <title>Portfolio Nina Hedman</title>
 </head>
@@ -36,13 +37,13 @@
             
             <div class="grid-container-about">
                 
-                <div id="about-quote">
+                <div id="about-quote" class="hexagon-background hg-glitter-lightpink">
                     <div class="center-in-grid mw-50p">
                         <p class="uppercase bold italic t-center">With vision and determination, <br> nothing is impossible</p>
                     </div>
                 </div>
            
-                <div id="about-text">
+                <div id="about-text" class="hexagon-background">
                     <div class="right-in-grid t-justify about-text-container">
                 
                         <p> As a true <a href="https://www.16personalities.com/enfj-personality" target="-blank">PROTAGONIST (ENFJ-T)</a>
@@ -69,7 +70,7 @@
                      </div>
                 </div>
 
-                <div id="about-contact" >
+                <div id="about-contact" class="hexagon-background hg-glitter-pink">
                     <a id="contact-link" class="bold center-in-grid" href="#contact">Let's talk!</a>
                 </div>
 
@@ -81,16 +82,16 @@
             <img class="header-svg" src="/media/portfolio.svg" alt="Portfolio">
            
             <div class="grid-container-portfolio">
-                <div id="portfolio-text">
+                <div id="portfolio-text" class="hexagon-background hg-glitter-lightpink">
 
                 </div>
-                <div id="portfolio-ex1">
+                <div id="portfolio-ex1" class="hexagon-background hg-metalic-pink">
                     
                 </div>
-                <div id="portfolio-ex2">
+                <div id="portfolio-ex2" class="hexagon-background hg-metalic-pink">
                     
                 </div>
-                <div id="portfolio-ex3">
+                <div id="portfolio-ex3" class="hexagon-background hg-metalic-pink">
                     
                 </div>
             </div>
@@ -99,12 +100,14 @@
         <section id="contact">
             <img class="header-svg" src="/media/contact.svg" alt="Contact">
             
-            <div id="form-background"> 
+           <!-- <div id="form-background"> 
                 <img class="hexagon-form" src="/media/hexagon_pink.svg" alt="Contact"> 
-                <div class="form-inputs"> 
+                
+                <div class="form-inputs"> -->
+            <div class="grid-container-contact">
                     <form  id="contact-form" action="">
                     
-                        <!--<div id="form-left"> -->
+                        <div id="form-contactinfo" class="hexagon-background hg-glitter-lightpink">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your name..">
                             
@@ -113,22 +116,22 @@
                             
                             <label for="phone">Phone number</label>
                             <input type="number" id="phone" name="phonenumber" placeholder="Your phone number..">
-                        <!--</div>  -->
-                        <!--<div id="form-right">-->
+                        </div>
+                        <div id="form-msg" class="hexagon-background hg-glitter-pink">
                             <label for="subject">Subject</label>
                             <input type="text" id="subject" name="subject" placeholder="Subject of the matter.." >
                             
                             <label for="message">Message</label>
                             <textarea id="message" name="message" placeholder="What would you like to discuss.." ></textarea>
-                        <!--</div>-->
+                        </div>
                     
-                    <div id="send-contact-form">
+                    <div id="send-contact-form" class="hexagon-background hg-metalic-pink">
                         <input type="submit" value="Send">
                     </div>
                 
                 </form>
             </div>
-            </div>
+           
         </section>
     </main>
 

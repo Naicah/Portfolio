@@ -9,6 +9,7 @@ var scrollTop_about = about.offsetTop;
 var scrollTop_portfolio = portfolio.offsetTop;
 var scrollTop_contact = contact.offsetTop;
 
+var logo = document.getElementById("logo");
 var nav_home = document.getElementById("nav-home");
 var nav_about = document.getElementById("nav-about");
 var nav_portfolio = document.getElementById("nav-portfolio");
@@ -20,8 +21,13 @@ var active_nav_pre = nav_home;
   -                        NAV                               -
   ------------------------------------------------------------ */
 
-  // Change highlight in nav
-  function activeNav(active_nav_new) {
+
+
+
+
+
+// Change highlight in nav
+function activeNav(active_nav_new) {
     if (active_nav_pre != nav_home) { //Don't toggle 'active' on home, only elements in nav
         active_nav_pre.classList.toggle("active");
     }
@@ -59,6 +65,17 @@ window.onscroll = function() {
     scrollTop_win = document.documentElement.scrollTop; //Find top position
     changeActivNavOnScroll(); // Change what section in nav that is highlighted
 };
+
+
+window.onscroll = function() {
+    if ($(document).scrollTop() >= 75) {
+      $('#logoImage img').css('width', '200px');
+    } else {
+      $('#logoImage img').css('width', '');
+    }
+  });
+
+
 
 /*------------------------------------------------------------
   -                        HOME                              -

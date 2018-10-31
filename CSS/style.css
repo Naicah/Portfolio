@@ -68,6 +68,7 @@ html {
     background-image: url("/media/hexagon_glitter_lightpink.svg");
 }
 
+
 /*------------------------------------------------------------
   -                     MAIN LAYOUT                          -
   ------------------------------------------------------------ */
@@ -110,15 +111,12 @@ header {
     justify-content: space-between;
 }
 #nav-home {
-    margin-left: 10vw;
+    width: 10vw;
 }
+
 #nav-sections {
     margin-right: 10vw;
 }
-#logo {
-    max-width: 30%;
-}
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -148,7 +146,16 @@ li a {
 #home {
     height: 100vh;
 }
-
+#logo {
+    height: 80vh;
+    width: auto;
+    margin: 10vh auto;
+    -webkit-transition: width 2s, height 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s, height 2s;
+}
+#logo:hover {
+    height: 10vh;
+}
 
   /*------------------------------------------------------------
     -                        ABOUT                             -

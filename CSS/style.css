@@ -196,7 +196,6 @@ li a {
 #portfolio-ex2 { grid-area: 3 / 6 / 5 / 10; }
 #portfolio-ex3 { grid-area: 4 / 2 / 6 / 6; }
 
-
 .grid-container-portfolio {
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: repeat(5, 20vh);

@@ -175,7 +175,7 @@ li a {
 #about-contact {
     display: grid;
     background-image: url("/media/hexagon_glitter_pink.svg");
-    background-position: right; 
+    background-position: center; 
     background-repeat: no-repeat; 
     background-size: contain;
 }
@@ -198,9 +198,7 @@ li a {
     color: rgb(190, 109, 127);
     text-decoration: underline;
 }
-#about-contact {
-  
-}
+
 
   /*------------------------------------------------------------
     -                        PORTFOLIO                         -

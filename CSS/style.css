@@ -38,9 +38,6 @@ html {
     opacity: 0.2;
     z-index: -1;
 }
-#home, #about,#portfolio, #contact {
-    display: grid;
-}
 .header-svg {
     max-height:60vh;
     max-width:80vw;
@@ -52,7 +49,6 @@ html {
     padding: 10px;
 }  
 .hexagon-background {
-    display: grid;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: contain;

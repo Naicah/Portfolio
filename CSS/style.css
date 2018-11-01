@@ -20,7 +20,7 @@ html {
 }
 .right-in-grid {
     justify-self: right; 
-    align-self: center;
+    align-self: center !important;
 }
 .mw-80p {
     max-width: 80%;
@@ -59,13 +59,13 @@ html {
     overflow: visible;
 }
 .hg-metalic-pink {
-    background-image: url("/media/hexagon_metalic_pink.svg");
+    background-image: url("/media/hexagon_metalic_pink.png");
 }
 .hg-glitter-pink {
-    background-image: url("/media/hexagon_glitter_pink.svg");
+    background-image: url("/media/hexagon_glitter_pink.png");
 }
 .hg-glitter-lightpink {
-    background-image: url("/media/hexagon_glitter_lightpink.svg");
+    background-image: url("/media/hexagon_glitter_lightpink.png");
 }
 
 

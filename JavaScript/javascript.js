@@ -66,15 +66,15 @@ window.onscroll = function() {
     changeActivNavOnScroll(); // Change what section in nav that is highlighted
 };
 
-
+/*
 window.onscroll = function() {
     if ($(document).scrollTop() >= 75) {
       $('#logoImage img').css('width', '200px');
     } else {
       $('#logoImage img').css('width', '');
     }
-  });
-
+  }
+*/
 
 
 /*------------------------------------------------------------

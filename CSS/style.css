@@ -54,7 +54,7 @@ html {
     grid-gap: 20px;
     padding: 10px;
 }  
-.hexagon-background {
+.hexagon-background, #nav, .footer-bg{
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: contain;
@@ -91,6 +91,7 @@ footer { grid-area: footer; }
         'portolio'
         'contact'
         'footer';
+        padding: 0;
 } 
 
 @media only screen and (max-width: 500px) {
@@ -111,6 +112,9 @@ header {
     position: -webkit-sticky; /* Safari */
     top: 0;
     width: 100%;
+}
+
+#nav {
     display: flex;
     justify-content: space-between;
 }
@@ -149,7 +153,6 @@ li a {
 
 #home {
     height: 100vh;
-    border-style: solid;
 }
 #logo {
     height: 80vh;
@@ -369,8 +372,3 @@ input[type=submit] {
   /*------------------------------------------------------------
     -                        FOOTER                            -
     ------------------------------------------------------------ */
-
-footer img {
-    width: 100vw;
-    margin: 0;
-}

@@ -1,5 +1,4 @@
 window.onload = function() {
-    scrollTop_win_now = 0;
 };
 
 var home = document.getElementById("home");

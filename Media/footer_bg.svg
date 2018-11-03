@@ -7,7 +7,7 @@
 
       .cls-2 {
         fill: none;
-        stroke: rgba(112,112,112,0.95);
+        stroke: #707070;
         stroke-width: 10px;
       }
 
@@ -16,11 +16,11 @@
       }
 
       .cls-4 {
-        filter: url(#Line_1);
+        filter: url(#Line_2);
       }
     </style>
-    <filter id="Line_1" x="-8.932" y="12.519" width="1022.863" height="114.963" filterUnits="userSpaceOnUse">
-      <feOffset dy="6" input="SourceAlpha"/>
+    <filter id="Line_2" x="-8.937" y="-3.481" width="1022.873" height="115.962" filterUnits="userSpaceOnUse">
+      <feOffset dy="-6" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="3" result="blur"/>
       <feFlood flood-opacity="0.161"/>
       <feComposite operator="in" in2="blur"/>
@@ -34,11 +34,11 @@
     </clipPath>
   </defs>
   <g id="Web_1920_1" data-name="Web 1920 – 1" class="cls-1">
-    <g id="Group_50" data-name="Group 50" transform="translate(-4326 -5867)">
-      <g class="cls-4" transform="matrix(1, 0, 0, 1, 4326, 5867)">
-        <line id="Line_1-2" data-name="Line 1" class="cls-2" y1="87" x2="1004" transform="translate(0.5 20.5)"/>
+    <g id="Group_1" data-name="Group 1" transform="translate(-4330 -6027)">
+      <g class="cls-4" transform="matrix(1, 0, 0, 1, 4330, 6027)">
+        <line id="Line_2-2" data-name="Line 2" class="cls-2" x1="1004" y2="88" transform="translate(0.5 16.5)"/>
       </g>
-      <path id="Subtraction_125" data-name="Subtraction 125" class="cls-3" d="M74.317,612.123h0V498h1005v26.2l-1005,87.926Z" transform="translate(4251.683 5368.597)"/>
+      <path id="Subtraction_126" data-name="Subtraction 126" class="cls-3" d="M74.317,612.123h0V498h1005v26.2l-1005,87.926Z" transform="translate(5409.318 6649.72) rotate(180)"/>
     </g>
   </g>
 </svg>

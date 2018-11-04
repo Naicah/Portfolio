@@ -70,9 +70,14 @@ html {
 .hg-glitter-lightpink {
     background-image: url("/media/hexagon_glitter_lightpink.png");
 }
-
 h1, h2 {
     display: none;
+}
+.zoom {
+    transition: transform .2s; /* Animation */
+}
+.zoom:hover {
+    transform: scale(1.4);
 }
 /*------------------------------------------------------------
   -                     MAIN LAYOUT                          -
@@ -150,7 +155,8 @@ li a {
     font-size: 3vw;
 }
 .active {
-    background-color: rgb(219, 157, 170);
+    border-top: 4px solid white;
+    
 }
 
 
@@ -165,9 +171,7 @@ li a {
 #logo {
     height: 80vh;
     width: auto;
-    margin: 10vh auto;
     position: fixed;
-    left: 25%;
    /* -webkit-transition: width 2s, height 2s; /* For Safari 3.1 to 6.0 */
     /*transition: width 2s, height 2s;*/
   /*  -webkit-animation: move 5s;

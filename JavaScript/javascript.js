@@ -1,4 +1,5 @@
 window.onload = function() {
+    moveElementDiagonal_MiddleTop(logo, logo.offsetHeight);
 };
 
 var home = document.getElementById("home");
@@ -6,12 +7,11 @@ var about = document.getElementById("about");
 var portfolio = document.getElementById("portfolio");
 var contact = document.getElementById("contact");
 
-var logo = document.getElementById("logo");
 var element_height;
+var element_space;
 
 var screen_height = document.getElementById("home").offsetHeight;
-
-var logo_space;
+var screen_width = document.getElementById("home").offsetWidth;
 
 var scrollTop_win_now;
 var scrollTop_win_before;
@@ -40,46 +40,29 @@ var max_height = one_pro_height*81; //81% of screen height
   -                        NAV                               -
   ------------------------------------------------------------ */
 
-/*function changeHeight(element, element_height) {
-    
-    console.log("Element: " + element_height);
-    //console.log("scroll before: " + scrollTop_win_before);
-    //console.log("Scroll now: " + scrollTop_win_now);
-
-
-    if ((element_height > min_height) && (element_height < max_height)) {
-       if ((scrollTop_win_now > scrollTop_win_before)){ //Scrolling down
-            console.log("Ska krympa");
-            new_height = element_height-10;
-            element.style.height = new_height + 'px';
-            element_height = element_height-10;
-        } else { //Scrolling up
-            console.log("Ska växa");
-            new_height = element_height+10;
-            element.style.height =  new_height + 'px';
-            element_height = element_height+10;
-        }
-    } else if (element_height > max_height) {
-        element_height = max_height;
-    } else if (element_height < min_height) {
-        element_height = min_height;
-    }
-}*/
-
 function changeHeight(element, element_height) {
     console.log("Element: " + element_height);
     if ((element_height > min_height) && (element_height < max_height)) {
-        logo_space = screen_height - scrollTop_win_now;
-        console.log("Logo space: " + logo_space);
-        element_height = (logo_space/10) * 8;
+        element_space = screen_height - scrollTop_win_now;
+        console.log("Logo space: " + element_space);
+        element_height = (element_space/10) * 8;
         if (element_height > min_height) {
-
             console.log("New element height: " + element_height);
             element.style.height = element_height + 'px';
+            moveElementDiagonal_MiddleTop(logo, element_height);
         }
     }
+   
 }
 
+function moveElementDiagonal_MiddleTop(element, element_height) {
+    var procent = element_space / screen_height;
+    var top_pos = (element_space/2) - (element_height/2)
+    var left_pos = ((screen_width * procent) / 2) - (element_height/2);
+
+    element.style.top = top_pos + 'px';
+    element.style.left = left_pos + 'px';
+}
 
 // Change highlight in nav
 function activeNav(active_nav_new) {
@@ -122,6 +105,9 @@ window.onscroll = function() {
     changeActivNavOnScroll(); // Change what section in nav that is highlighted
     changeHeight(logo, logo.offsetHeight);
     
+    /*document.getElementById('nav-home').appendChild(
+        document.getElementById('logo')
+      );*/
 };
 
 /*
@@ -138,20 +124,3 @@ window.onscroll = function() {
 /*------------------------------------------------------------
   -                        HOME                              -
   ------------------------------------------------------------ */
-
-
-
-function moveLogo() {
-    var logo = document.getElementById("animate"); 
-    var pos = 0;
-    var id = setInterval(frame, 5);
-    function frame() {
-        if (pos == 350) {
-            clearInterval(id);
-        } else {
-            pos++; 
-            elem.style.top = pos + 'px'; 
-            elem.style.left = pos + 'px'; 
-        }
-    }
-}

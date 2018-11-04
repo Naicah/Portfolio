@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box; 
+    font-family: 'Loved by the King', cursive;
 }
 body {
     background-image: url("/media/white_marble_blacklines.jpg"); 
@@ -115,32 +116,39 @@ header {
 }
 
 #nav {
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
+   width: 100%;
 }
 #nav-home {
     width: 10vw;
 }
-
 #nav-sections {
-    margin-right: 10vw;
+    margin-right: 20vw;
 }
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;  
-    display: flex; 
+    overflow: hidden;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
 }
-
+li {
+    float: left;
+}
 li a {
     display: block;
-    color: rgb(190, 109, 127);
+    color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 1vw 2vw 2vw 2vw;
     text-decoration: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3vw;
 }
-
 .active {
     background-color: rgb(219, 157, 170);
 }

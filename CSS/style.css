@@ -119,13 +119,24 @@ header {
     top: 0;
     width: 100%;
 }
+#nav_bg {
+    opacity: 0;
+}
 
+#nav_bg.fadeIn{
+    opacity: 1;
+    transition: opacity 2s; 
+}
+#nav_bg.fadeOut{
+    opacity: 0;
+    transition: opacity 2s; 
+}
 #nav {
     position: fixed;
     top: 0;
     display: flex;
     justify-content: space-between;
-   width: 100%;
+    width: 100%;
 }
 #nav-home {
     width: 10vw;

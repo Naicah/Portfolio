@@ -20,6 +20,7 @@ var scrollTop_about = about.offsetTop;
 var scrollTop_portfolio = portfolio.offsetTop;
 var scrollTop_contact = contact.offsetTop;
 
+var nav_bg =  document.getElementById("nav_bg");
 var logo = document.getElementById("logo");
 var nav_home = document.getElementById("nav-home");
 var nav_about = document.getElementById("nav-about");
@@ -74,13 +75,13 @@ function activeNav(active_nav_new) {
 }
 
 //When click on section in nav
-document.getElementById('nav-about').addEventListener('click', function () {
+nav_about.addEventListener('click', function () {
     activeNav(nav_about);
 })
-document.getElementById('nav-portfolio').addEventListener('click', function () {
+nav_portfolio.addEventListener('click', function () {
     activeNav(nav_portfolio);
 })
-document.getElementById('nav-contact').addEventListener('click', function () {
+nav_contact.addEventListener('click', function () {
     activeNav(nav_contact);
 })
 
@@ -88,12 +89,18 @@ document.getElementById('nav-contact').addEventListener('click', function () {
 function changeActivNavOnScroll() {
     if (scrollTop_win_now >= scrollTop_contact) { //Within contact section
         activeNav(nav_contact);
+      //  nav_bg.classList.add("fade");
     } else if (scrollTop_win_now >= scrollTop_portfolio) { //Within portfolio section
         activeNav(nav_portfolio);
+      //  nav_bg.classList.add("fade");
     }  else if (scrollTop_win_now >= scrollTop_about) { //Within about section
         activeNav(nav_about);
+        nav_bg.classList.remove("fadeOut");
+        nav_bg.classList.add("fadeIn");
     } else { //Within home section
         activeNav(nav_home);
+        nav_bg.classList.remove("fadeIn");
+        nav_bg.classList.add("fadeOut");
         nav_home.classList.remove("active");
     }
 }
@@ -104,21 +111,8 @@ window.onscroll = function() {
     scrollTop_win_now = document.documentElement.scrollTop; //Find top position
     changeActivNavOnScroll(); // Change what section in nav that is highlighted
     changeHeight(logo, logo.offsetHeight);
-    
-    /*document.getElementById('nav-home').appendChild(
-        document.getElementById('logo')
-      );*/
 };
 
-/*
-window.onscroll = function() {
-    if ($(document).scrollTop() >= 75) {
-      $('#logoImage img').css('width', '200px');
-    } else {
-      $('#logoImage img').css('width', '');
-    }
-  }
-*/
 
 
 /*------------------------------------------------------------

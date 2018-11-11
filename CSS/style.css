@@ -155,8 +155,6 @@ ul {
 }
 li {
     float: left;
-}
-li a {
     display: block;
     color: white;
     text-align: center;
@@ -165,16 +163,16 @@ li a {
     font-family: 'Dancing Script', cursive;
     font-size: 3vw;
 }
+li:hover, #logo:hover {
+    cursor: pointer;
+}
 .active {
     border-top: 4px solid white;
-    
 }
 
-
-
-  /*------------------------------------------------------------
-    -                        HOME                              -
-    ------------------------------------------------------------ */
+/*------------------------------------------------------------
+-                        HOME                              -
+------------------------------------------------------------ */
 
 #home {
     height: 100vh;
@@ -183,11 +181,6 @@ li a {
     height: 80vh;
     width: auto;
     position: fixed;
-   /* -webkit-transition: width 2s, height 2s; /* For Safari 3.1 to 6.0 */
-    /*transition: width 2s, height 2s;*/
-  /*  -webkit-animation: move 5s;
-    animation: move 2s;
-    animation-fill-mode: forwards;*/
 }
 
 /*@-webkit-keyframes move
@@ -199,7 +192,7 @@ li a {
         left: 50%;
     }
 }*/
-@keyframes move
+/*@keyframes move
 {
     from {
         top: 10vh;
@@ -209,11 +202,11 @@ li a {
         top: 0;
         height: 10vh;
     }
-}
+}*/
 
-  /*------------------------------------------------------------
-    -                        ABOUT                             -
-    ------------------------------------------------------------ */
+/*------------------------------------------------------------
+-                        ABOUT                             -
+------------------------------------------------------------ */
 
 #about-quote {grid-area: 1 / 2 / 3 / 4;}
 #about-text {grid-area: 2 / 4 / 6 / 7;}
@@ -254,9 +247,9 @@ li a {
 }
 
 
-  /*------------------------------------------------------------
-    -                        PORTFOLIO                         -
-    ------------------------------------------------------------ */
+/*------------------------------------------------------------
+-                        PORTFOLIO                         -
+------------------------------------------------------------ */
 
 #portfolio-text { grid-area: 1 / 2 / 4 / 8; width: 80%;}
 #portfolio-ex1 { grid-area: 1 / 10 / 3 / 14; }
@@ -287,72 +280,10 @@ li a {
 #form-msg { grid-area: 2 / 1 / 6 / 5; }
 #send-contact-form { grid-area: 4 / 5 / 5 / 7; }
 
-
 .grid-container-contact {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(5, 20vh);
 } 
-
-    
-
- /*  #contact {
-    max-width: 100vw;
-
-}
-#contact .header-svg {
-    max-height: 45vh;
-}
-
-#form-left { grid-area: form-left; }
-#form-right { grid-area: form-right; }
-#send-contact-form { 
-    grid-area: send-contact-form;
-    display: grid;
-    justify-content: center;
-    } 
-
-
-#form-background {
-    position: relative;
-    /*background-image: url("/media/hexagon-pink.svg"); 
-    max-width: 80vw;
-    background-position: center; 
-    background-repeat: no-repeat; 
-    position: relative;
-    background-size: contain;
-    margin: auto;
- }
-
-#contact-form {
-   
-   
-    /*align-content: space-around;
-}
-.hexagon-form {
-    /*max-height: 90vh;
-    min-width: 70vw;
-    max-width: 90vw;
-    display: block;
-    margin: auto;
-}
-.form-inputs {
-    max-width: 50vw;
-    position: absolute;
-    left: 25%;
-    top: 20%;
-    display: flex;
-    flex-direction: column;
-    /*
-    padding: 20px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    grid-template-areas: 
-    'form-left form-right'
-    'send-contact-form send-contact-form';
-    grid-gap: 20px;
-    align-content: center;  
-} */
 .input-area {
     width: 50%;
     Height: 40%;
@@ -378,7 +309,6 @@ input[type=submit] {
     border: none;
     cursor: pointer;
     align-self: center;
-    
 }
 .hero-text{
     text-align: center;

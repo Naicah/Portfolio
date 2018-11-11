@@ -153,17 +153,17 @@ ul {
     position: sticky;
     top: 0;
 }
-li {
+#nav-about, #nav-portfolio, #nav-contact {
     float: left;
     display: block;
-    color: white;
+    color: rgb(239, 218, 218);
     text-align: center;
     padding: 1vw 2vw 2vw 2vw;
     text-decoration: none;
     font-family: 'Dancing Script', cursive;
     font-size: 3vw;
 }
-li:hover, #logo:hover {
+#nav-about:hover, #nav-portfolio:hover, #nav-contact:hover, #logo:hover {
     cursor: pointer;
 }
 .active {
@@ -182,27 +182,6 @@ li:hover, #logo:hover {
     width: auto;
     position: fixed;
 }
-
-/*@-webkit-keyframes move
-{
-    from {
-        left: 0;
-    }
-    to {
-        left: 50%;
-    }
-}*/
-/*@keyframes move
-{
-    from {
-        top: 10vh;
-        height: 80vh;
-    }
-    to {
-        top: 0;
-        height: 10vh;
-    }
-}*/
 
 /*------------------------------------------------------------
 -                        ABOUT                             -

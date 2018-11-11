@@ -9,19 +9,3 @@
     display: none;
 }
 
-#home, #about, #portfolio, #contact {
-    border-style: solid;
-}
-#scroll-top {
-    height: 20px;
-    width: 20px;
-    background-color: green;
-    position: relative;
-    top: 1912px;
-}
-#scroll-bottom {
-    height: 20px;
-    width: 20px;
-    background-color: red;
-    position: relative;
-}

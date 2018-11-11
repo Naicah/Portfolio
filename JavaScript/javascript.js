@@ -63,7 +63,8 @@ function getSectionPosition () {
   -                        NAV                               -
   ------------------------------------------------------------ */
 
-function changeHeight(element, element_height) { //Change height of given element
+  //Change height of given element
+function changeHeight(element, element_height) { 
     if ((element_height > min_height) && (element_height < max_height)) {
         element_space = screen_height - scrollTop_win_now;
         element_height = (element_space/10) * 8;
@@ -74,6 +75,7 @@ function changeHeight(element, element_height) { //Change height of given elemen
     }
 }
 
+// Move logo diagonally
 function moveElementDiagonal_MiddleTop(element, element_height) {
     var procent = element_space / screen_height;
     var top_pos = (element_space/2) - (element_height/2)
@@ -102,11 +104,17 @@ function changeActivNavOnScroll() {
         activeNav(nav_about);
         nav_bg.classList.remove("fadeOut");
         nav_bg.classList.add("fadeIn");
+        nav_about.style.color = "white";
+        nav_portfolio.style.color = "white";
+        nav_contact.style.color = "white";
     } else { //Within home section
         activeNav(nav_home);
         nav_bg.classList.remove("fadeIn");
         nav_bg.classList.add("fadeOut");
         nav_home.classList.remove("active");
+        nav_about.style.color = "rgb(239, 218, 218)";
+        nav_portfolio.style.color = "rgb(239, 218, 218)";
+        nav_contact.style.color = "rgb(239, 218, 218)";
     }
 }
 

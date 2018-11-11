@@ -66,30 +66,35 @@ function getSectionPosition () {
 
 //Change height of logo
 function changeHeightLogo() { 
-    logo_height = logo.offsetHeight
+    logo_height = logo.offsetHeight;
     console.log("Logo height: " + logo_height);
     console.log("min height: " + min_height);
+
     if (logo_height < min_height) {
         console.log ("För liten");
         logo.style.height = min_height + 'px';
         console.log("ny min height: " + min_height+ 'px');
-    }
- 
-    if (logo_height = min_height) {
-        console.log ("Lika stor");
-    }
-    if ((logo_height >= min_height) && (logo_height < max_height)) {
-        console.log ("Ska ändra storlek");
-        logo_space = screen_height - scrollTop_win_now;
-        logo_height = (logo_space/10) * 8;
-            logo.style.height = logo_height + 'px';
-        if (logo_height != min_height) {
-            console.log ("Inta lika stor");
-            moveLogo();
-        }
-            
+    } 
+    if ((logo_height == min_height) && (scrollTop_win_now > scrollTop_win_before)) { //Scrolling down
+        console.log ("Lika stor skroll ner");
+    } else if ((logo_height == min_height) && (scrollTop_win_now < scrollTop_win_before)){ // SCrolling up
+       
+        console.log ("Lika stor skroll upp");
+         logo.style.height =( min_height + 1) + 'px';
         
-    }
+         console.log("Logo height: " + (min_height + 1));
+      
+    } 
+    
+     if ((logo_height > min_height) && (logo_height < max_height)) {
+            
+            console.log ("Ska ändra storlek");
+            logo_space = screen_height - scrollTop_win_now;
+            logo_height = (logo_space/10) * 8;
+                logo.style.height = logo_height + 'px';
+                moveLogo();
+     }
+    
 }
 
 // Move logo diagonally
@@ -143,13 +148,20 @@ window.onscroll = function() {
     getSectionPosition();
     scrollTop_win_before = scrollTop_win_now;
     scrollTop_win_now = document.documentElement.scrollTop; //Find top position
+
+   /* if ((scrollTop_win_now > scrollTop_win_before) && (logo_height == min_height)) { // Scrolling down & logo is minimum size
+
+    }*/
+
     changeActivNavOnScroll(); // Change what section in nav that is highlighted
     changeHeightLogo(); // Change height of logo
-    if (scrollTop_win_now >= top_about) {
+
+
+   /* if (scrollTop_win_now >= top_about) {
         logo.style.height = min_height + 'px';
     } else {
         
-    }
+    }*/
 };
 
 //When click on section in nav

@@ -3,7 +3,6 @@ var about = document.getElementById("about");
 var portfolio = document.getElementById("portfolio");
 var contact = document.getElementById("contact");
 
-var element_space;
 var screen_height = window.innerHeight;
 var screen_width = window.innerWidth;
 
@@ -22,6 +21,8 @@ var top_contact;
 
 var nav_bg =  document.getElementById("nav_bg");
 var logo = document.getElementById("logo");
+var logo_height = logo.offsetHeight;
+var logo_space;
 var nav_home = document.getElementById("nav-home");
 var nav_about = document.getElementById("nav-about");
 var nav_portfolio = document.getElementById("nav-portfolio");
@@ -30,7 +31,7 @@ var active_nav_pre = nav_home;
 
 var one_pro_height = screen_height/100;
 var new_height;
-var min_height = one_pro_height*10; //10% of screen height
+var min_height = Math.round(nav_bg.offsetHeight * 0.65); //80% of screen height
 var max_height = one_pro_height*81; //81% of screen height
 
 /*------------------------------------------------------------
@@ -41,7 +42,7 @@ window.onload = function() {
     scrollTop_win_now = document.documentElement.scrollTop; //Find top position
     getSectionPosition();
     changeActivNavOnScroll(); // Change what section in nav that is highlighted
-    changeHeight(logo, logo.offsetHeight);
+    changeHeightLogo(logo, logo.offsetHeight);
 };
 
 /*------------------------------------------------------------
@@ -63,26 +64,42 @@ function getSectionPosition () {
   -                        NAV                               -
   ------------------------------------------------------------ */
 
-  //Change height of given element
-function changeHeight(element, element_height) { 
-    if ((element_height > min_height) && (element_height < max_height)) {
-        element_space = screen_height - scrollTop_win_now;
-        element_height = (element_space/10) * 8;
-        if (element_height > min_height) {
-            element.style.height = element_height + 'px';
-            moveElementDiagonal_MiddleTop(logo, element_height);
+//Change height of logo
+function changeHeightLogo() { 
+    logo_height = logo.offsetHeight
+    console.log("Logo height: " + logo_height);
+    console.log("min height: " + min_height);
+    if (logo_height < min_height) {
+        console.log ("För liten");
+        logo.style.height = min_height + 'px';
+        console.log("ny min height: " + min_height+ 'px');
+    }
+ 
+    if (logo_height = min_height) {
+        console.log ("Lika stor");
+    }
+    if ((logo_height >= min_height) && (logo_height < max_height)) {
+        console.log ("Ska ändra storlek");
+        logo_space = screen_height - scrollTop_win_now;
+        logo_height = (logo_space/10) * 8;
+            logo.style.height = logo_height + 'px';
+        if (logo_height != min_height) {
+            console.log ("Inta lika stor");
+            moveLogo();
         }
+            
+        
     }
 }
 
 // Move logo diagonally
-function moveElementDiagonal_MiddleTop(element, element_height) {
-    var procent = element_space / screen_height;
-    var top_pos = (element_space/2) - (element_height/2)
-    var left_pos = ((screen_width * procent) / 2) - (element_height/2);
+function moveLogo() {
+    var procent = logo_space / screen_height;
+    var top_pos = (logo_space/2) - (logo_height/2)
+    var left_pos = ((screen_width * procent) / 2) - (logo_height/2);
 
-    element.style.top = top_pos + 'px';
-    element.style.left = left_pos + 'px';
+    logo.style.top = top_pos + 'px';
+    logo.style.left = left_pos + 'px';
 }
 
 // Change highlight in nav
@@ -120,11 +137,19 @@ function changeActivNavOnScroll() {
 
 // When the user scrolls the page
 window.onscroll = function() {
+
+    
+   
     getSectionPosition();
     scrollTop_win_before = scrollTop_win_now;
     scrollTop_win_now = document.documentElement.scrollTop; //Find top position
     changeActivNavOnScroll(); // Change what section in nav that is highlighted
-    changeHeight(logo, logo.offsetHeight); // Change height of logo
+    changeHeightLogo(); // Change height of logo
+    if (scrollTop_win_now >= top_about) {
+        logo.style.height = min_height + 'px';
+    } else {
+        
+    }
 };
 
 //When click on section in nav

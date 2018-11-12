@@ -121,7 +121,6 @@ header {
 }
 #nav_bg {
     opacity: 0;
-    border-style: solid;
 }
 
 #nav_bg.fadeIn{

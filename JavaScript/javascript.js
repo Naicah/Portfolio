@@ -21,7 +21,7 @@ var top_contact;
 
 var nav_bg =  document.getElementById("nav_bg");
 var logo = document.getElementById("logo");
-var logo_height = logo.offsetHeight;
+
 var logo_space;
 var nav_home = document.getElementById("nav-home");
 var nav_about = document.getElementById("nav-about");
@@ -29,10 +29,7 @@ var nav_portfolio = document.getElementById("nav-portfolio");
 var nav_contact = document.getElementById("nav-contact");
 var active_nav_pre = nav_home;
 
-var one_pro_height = screen_height/100;
-var new_height;
-var min_height = Math.round(nav_bg.offsetHeight * 0.65); //80% of screen height
-var max_height = one_pro_height*81; //81% of screen height
+
 
 /*------------------------------------------------------------
   -                        ON LOAD                           -
@@ -42,7 +39,7 @@ window.onload = function() {
     scrollTop_win_now = document.documentElement.scrollTop; //Find top position
     getSectionPosition();
     changeActivNavOnScroll(); // Change what section in nav that is highlighted
-    changeHeightLogo(logo, logo.offsetHeight);
+    changeHeightLogo();
 };
 
 /*------------------------------------------------------------
@@ -66,46 +63,103 @@ function getSectionPosition () {
 
 //Change height of logo
 function changeHeightLogo() { 
-    logo_height = logo.offsetHeight;
-    console.log("Logo height: " + logo_height);
-    console.log("min height: " + min_height);
 
-    if (logo_height < min_height) {
-        console.log ("För liten");
-        logo.style.height = min_height + 'px';
-        console.log("ny min height: " + min_height+ 'px');
-    } 
-    if ((logo_height == min_height) && (scrollTop_win_now > scrollTop_win_before)) { //Scrolling down
-        console.log ("Lika stor skroll ner");
-    } else if ((logo_height == min_height) && (scrollTop_win_now < scrollTop_win_before)){ // SCrolling up
-       
-        console.log ("Lika stor skroll upp");
-         logo.style.height =( min_height + 1) + 'px';
-        
-         console.log("Logo height: " + (min_height + 1));
-      
-    } 
-    
-     if ((logo_height > min_height) && (logo_height < max_height)) {
-            
-            console.log ("Ska ändra storlek");
+    var min_height = Math.round(nav_bg.offsetHeight * 0.65); //65% of nav_bg height
+    var max_height = (screen_height/100)*81; //81% of screen height
+    var logo_height = logo.offsetHeight;
+
+    scrollTop_win_now = document.documentElement.scrollTop; //Find top position
+
+    if (scrollTop_win_now >= top_about) { // Below #About = no logo animation
+        logo_height = min_height; // Logo is minimal size
+        logo_space  = Math.round(nav_bg.offsetHeight * 0.8); //Fit within nav_bg
+
+    } else { // Within home = logo animation
+
+        if (logo_height < min_height) { // Logo is to small
+            logo_height = min_height; //Make minimal size
+            logo_space  = Math.round(nav_bg.offsetHeight * 0.8);
+
+        } else if (logo_height == min_height) { // Logo is minimal size
+            logo_space  = Math.round(nav_bg.offsetHeight * 0.8);
+
+        } else {
             logo_space = screen_height - scrollTop_win_now;
             logo_height = (logo_space/10) * 8;
-                logo.style.height = logo_height + 'px';
-                moveLogo();
-     }
-    
+        }
+
+        var procent = logo_space / screen_height;
+        var top_pos = (logo_space/2) - (logo_height/2)
+        var left_pos = ((screen_width * procent) / 2) - (logo_height/2);
+
+        logo.style.top = top_pos + 'px';
+        logo.style.left = left_pos + 'px';
+
+    }
+
+
+
+    logo.style.height = logo_height + 'px';
+    // moveLogo(logo_height, min_height);
+    // console.log("Min height: " + min_height);
 }
 
 // Move logo diagonally
-function moveLogo() {
-    var procent = logo_space / screen_height;
-    var top_pos = (logo_space/2) - (logo_height/2)
-    var left_pos = ((screen_width * procent) / 2) - (logo_height/2);
+function moveLogo(logo_height, min_height) {
+    
 
-    logo.style.top = top_pos + 'px';
-    logo.style.left = left_pos + 'px';
+    if (scrollTop_win_now >= top_about) {
+        logo_space  = Math.round(nav_bg.offsetHeight * 0.8);
+    } else {
+        logo_space = screen_height - scrollTop_win_now;
+    }
+
+    if (logo_height > min_height) {
+        var procent = logo_space / screen_height;
+        var top_pos = (logo_space/2) - (logo_height/2)
+        var left_pos = ((screen_width * procent) / 2) - (logo_height/2);
+
+        logo.style.top = top_pos + 'px';
+        logo.style.left = left_pos + 'px';
+    }
+    
+
+    // console.log("Top: "+ top_pos);
+    // console.log("Left: "+ left_pos);
 }
+
+
+    // console.log("Logo height: " + logo_height);
+    // console.log("min height: " + min_height);
+
+    // if (logo_height < min_height) {
+    //     console.log ("För liten");
+    //     logo.style.height = min_height + 'px';
+    //     console.log("ny min height: " + min_height+ 'px');
+    // } 
+    // if ((logo_height == min_height) && (scrollTop_win_now > scrollTop_win_before)) { //Scrolling down
+    //     console.log ("Lika stor skroll ner");
+    // } else if ((logo_height == min_height) && (scrollTop_win_now < scrollTop_win_before)){ // SCrolling up
+       
+    //     console.log ("Lika stor skroll upp");
+    //      logo.style.height =( min_height + 1) + 'px';
+        
+    //      console.log("Logo height: " + (min_height + 1));
+      
+    // } 
+    
+    //  if ((logo_height > min_height) && (logo_height < max_height)) {
+            
+    //         console.log ("Ska ändra storlek");
+    //         logo_space = screen_height - scrollTop_win_now;
+    //         logo_height = (logo_space/10) * 8;
+    //             logo.style.height = logo_height + 'px';
+    //             moveLogo();
+    //  }
+    
+//}
+
+
 
 // Change highlight in nav
 function activeNav(active_nav_new) {
@@ -142,26 +196,14 @@ function changeActivNavOnScroll() {
 
 // When the user scrolls the page
 window.onscroll = function() {
-
-    
    
     getSectionPosition();
     scrollTop_win_before = scrollTop_win_now;
     scrollTop_win_now = document.documentElement.scrollTop; //Find top position
 
-   /* if ((scrollTop_win_now > scrollTop_win_before) && (logo_height == min_height)) { // Scrolling down & logo is minimum size
-
-    }*/
-
     changeActivNavOnScroll(); // Change what section in nav that is highlighted
     changeHeightLogo(); // Change height of logo
 
-
-   /* if (scrollTop_win_now >= top_about) {
-        logo.style.height = min_height + 'px';
-    } else {
-        
-    }*/
 };
 
 //When click on section in nav

@@ -1,14 +1,3 @@
-var home = document.getElementById("home");
-var about = document.getElementById("about");
-var portfolio = document.getElementById("portfolio");
-var contact = document.getElementById("contact");
-
-var screen_height = window.innerHeight;
-var screen_width = window.innerWidth;
-
-var scrollTop_win_pos; //Top position rigth now
-// var scrollTop_win_before; // Previos top position (when scrolling)
-
 var pos_body;
 var pos_home;
 var top_home;
@@ -28,29 +17,32 @@ var nav_about = document.getElementById("nav-about");
 var nav_portfolio = document.getElementById("nav-portfolio");
 var nav_contact = document.getElementById("nav-contact");
 var active_nav_pre = nav_home;
-
+var pre_pos = 0;
 
 
 /*------------------------------------------------------------
   -                      ON LOAD / SCROLL                    -
   ------------------------------------------------------------ */
-// When page is loaded/updated
+  
+
+  // When page is loaded/updated
 window.onload = function() {
-    scrollTop_win_pos = document.documentElement.scrollTop; //Find top position
-    getSectionPosition();
-    nav_bg.classList.toggle("opacity0");
-    nav_bg.classList.toggle("opacity1");
-    changeActiveNav(); // Change what section in nav that is highlighted
-    animateLogo(scrollTop_win_pos);
+    var pos = document.documentElement.scrollTop; //Find top position
+    getSectionPosition(); //Get position of all main sections
+    if (pre_pos != 0) {
+        fadeNav(pos, getScrollDirection(pos));
+    }
+    changeActiveNav(pos); // Change what section in nav that is highlighted
+    animateLogo(pos);
 };
 
 // When the user scrolls the page
 window.onscroll = function() {
-    getSectionPosition();
-    scrollTop_win_pos = document.documentElement.scrollTop; //Find top position
-    changeActiveNav(); // Change what section in nav that is highlighted
-    changeNavColor(scrollTop_win_pos);
-    animateLogo(scrollTop_win_pos); // Change height and position of logo
+    pos = document.documentElement.scrollTop; //Find top position
+    changeActiveNav(pos); // Change what section in nav that is highlighted
+    fadeNav(pos, getScrollDirection(pos));
+    
+    animateLogo(pos); // Change height and position of logo
 };
 
 /*------------------------------------------------------------
@@ -58,14 +50,29 @@ window.onscroll = function() {
   ------------------------------------------------------------ */
 function getSectionPosition () {
     pos_body = document.body.getBoundingClientRect();
-    pos_home = home.getBoundingClientRect();
-    top_home = pos_home.top - (pos_body.top);
-    pos_about = about.getBoundingClientRect();
-    top_about = pos_about.top - (pos_body.top);
-    pos_portfolio = portfolio.getBoundingClientRect();
-    top_portfolio = pos_portfolio.top - (pos_body.top);
-    pos_contact = contact.getBoundingClientRect();
-    top_contact = pos_contact.top - (pos_body.top);
+    top_home = document.getElementById("home").getBoundingClientRect().top - (pos_body.top);
+    top_about = document.getElementById("about").getBoundingClientRect().top - (pos_body.top);
+    top_portfolio = document.getElementById("portfolio").getBoundingClientRect().top - (pos_body.top);
+    top_contact = document.getElementById("contact").getBoundingClientRect().top - (pos_body.top);
+}
+
+function getScrollDirection (pos) {
+    pos = Math.round(pos);
+    pre_pos = Math.round(pre_pos);
+
+    console.log("pre_pos: " + pre_pos);
+    console.log("pos: " + pos);
+    if (pos > pre_pos) {
+        direction = "down";
+        console.log("down");
+    } else if (pos < pre_pos){
+        direction = "up";
+        console.log("up");
+    } else {
+        direction = "";
+    }
+    pre_pos = pos;
+    return direction;
 }
 
 /*------------------------------------------------------------
@@ -73,19 +80,23 @@ function getSectionPosition () {
   ------------------------------------------------------------ */
 
 //Change height and position of logo
-function animateLogo(scrollTop_win_pos) { 
+function animateLogo(pos) { 
 
-    var min_height = Math.round(nav_bg.offsetHeight * 0.65); //65% of nav_bg height
+    var nav_height = nav_bg.offsetHeight;
+    var min_height = Math.round(nav_height * 0.65); //65% of nav_bg height
     var logo_height = logo.offsetHeight;
     var logo_space;
-    var nav_bg_space = Math.round(nav_bg.offsetHeight * 0.8); //Fit within nav_bg
+    var nav_bg_space = Math.round(nav_height * 0.8); //Fit within nav_bg
+    var screen_height = window.innerHeight;
+    var screen_width = window.innerWidth;
+   
 
-    if (scrollTop_win_pos >= top_about) { // Below #About = no logo animation
+    if (pos >= top_about) { // Below #About = no logo animation
         logo_height = min_height; // Logo is minimal size
         logo_space  = nav_bg_space; //Fit within nav_bg
 
     } else { // Within home = logo animation
-        logo_space = screen_height - scrollTop_win_pos; // Height of space between top of viewpoint and bottom of #Home (since home = 100% och screen height)
+        logo_space = screen_height - pos; // Height of space between top of viewpoint and bottom of #Home (since home = 100% och screen height)
         logo_height = (logo_space/10) * 8; // 80% of logo_space
 
         if (logo_height < min_height) { // Logo is to small
@@ -103,6 +114,34 @@ function animateLogo(scrollTop_win_pos) {
     logo.style.height = logo_height + 'px'; //Set height
 }
 
+function fadeNav(pos, direction) {
+    
+    var nav_height = Math.round(nav_bg.offsetHeight);
+    var fade_max = Math.round((top_about - nav_height));
+    var fade_min = fade_max - (nav_height/2);
+    pos = Math.round(pos);
+    // console.log("Pos: " + Math.round(pos));
+    console.log("Fade min at: " + fade_min);
+    console.log("Fade max at: " + fade_max);
+    // if ((pos >= fade_min) && (pos <= fade_max)) {
+    if (pos >= fade_max) {
+        nav_bg.classList.remove("fadeOut");
+        nav_bg.classList.add("fadeIn");
+
+    } else {
+        nav_bg.classList.remove("fadeIn");
+        nav_bg.classList.add("fadeOut");
+    }
+        // console.log("Time to fade");
+        // if (direction == "down") {
+            
+        // } else if (direction == "up") {
+           
+        // }
+    // }
+    changeNavColor(pos);
+}
+
 // Change highlight in nav
 function activeNav(active_nav_new) {
     active_nav_pre.classList.toggle("active");
@@ -112,7 +151,9 @@ function activeNav(active_nav_new) {
 
 // Change color on text in nav depending on if nav_bg is visible or not
 function changeNavColor (pos){
-    if (pos >= top_about){ 
+    var nav_height = Math.round(nav_bg.offsetHeight);
+
+    if (pos >= Math.round((top_about - nav_height))){ 
         nav_about.style.color = "white";
         nav_portfolio.style.color = "white";
         nav_contact.style.color = "white";
@@ -124,18 +165,14 @@ function changeNavColor (pos){
 }
 
 //Check where top position is and change highlight in nav accordingly
-function changeActiveNav() {
-     if (scrollTop_win_pos >= top_contact) { //Within contact section
+function changeActiveNav(pos) {
+     if (pos >= top_contact) { //Within contact section
         activeNav(nav_contact);
-    } else if (scrollTop_win_pos >= top_portfolio) { //Within portfolio section
+    } else if (pos >= top_portfolio) { //Within portfolio section
         activeNav(nav_portfolio);
-    }  else if (scrollTop_win_pos >= top_about){ //Within about section
-        nav_bg.classList.remove("fadeOut");
-        nav_bg.classList.add("fadeIn");
+    }  else if (pos >= top_about){ //Within about section
         activeNav(nav_about);
     } else { //Within home section
-        nav_bg.classList.remove("fadeIn");
-        nav_bg.classList.add("fadeOut");
         activeNav(nav_home);
     }
 }

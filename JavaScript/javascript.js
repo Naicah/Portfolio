@@ -105,7 +105,7 @@ function changeNavColor (color){
             nav_about.style.color = "rgb(239, 218, 218)";
             nav_portfolio.style.color = "rgb(239, 218, 218)";
             nav_contact.style.color = "rgb(239, 218, 218)";
-        break;
+            break;
     }
 }
 // CHECK WHAT IS THE TOP POSITION OF VIEWPOINT AND CHANGE HUGHLIGT IN NAV ACCORDINGLY

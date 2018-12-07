@@ -304,6 +304,29 @@ input[type=submit] {
 }
 
 
-  /*------------------------------------------------------------
-    -                        FOOTER                            -
-    ------------------------------------------------------------ */
+/*------------------------------------------------------------
+-                        FOOTER                            -
+------------------------------------------------------------ */
+#footer-content {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    width: 100%;
+    padding-right: 2vw;
+}
+footer img, #footer-content {
+    position: fixed;
+    bottom: 0;
+}
+#footer-content * {
+    margin: 1vw;
+}
+footer p {
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+}
+.socialMediaIcon {
+    font-size: 2rem;
+    color: white;
+}

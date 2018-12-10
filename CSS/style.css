@@ -190,22 +190,24 @@ ul {
 ------------------------------------------------------------ */
 
 #about-quote {grid-area: 1 / 2 / 3 / 4;}
-#about-text {grid-area: 2 / 4 / 6 / 7;}
+#about-text {grid-area: 2 / 3 / 7 / 7;}
 #about-contact {grid-area: 4 / 2 / 5 / 3;
 }
 .grid-container-about {
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(5, 20vh);
+    grid-template-rows: repeat(6, 20vh);
 }
 #about-text {
     background-image: url("/media/hexagon_metalic_pink_cut.svg");
-    background-position: right; 
-    margin: -10vh 0 -10vh -10vw;
-    overflow: hide;
+    background-position: right;
+    font-size: 1.1rem;
 }
 .about-text-container {
-    padding-right:5vw;
-    max-width: 50%;
+    padding-right:1vw;
+    max-width: 45%;
+}
+#about-quote, #about-contact {
+    font-size: 1.7rem;
 }
 #about-contact:hover { 
     cursor: pointer;
@@ -216,14 +218,14 @@ ul {
     text-decoration: none;
 }
 #about-text a:link, #about-text a:visited {
-    color: rgb(219, 157, 170); 
+    color: #C36B64;
     background-color: transparent; 
     text-decoration: none;
 }
 
 
 #about-text a:hover, #about-text a:active {
-    color: rgb(190, 109, 127);
+    color: #C36B64;
     text-decoration: underline;
 }
 
@@ -261,6 +263,9 @@ ul {
 #form-msg { grid-area: 2 / 1 / 6 / 5; }
 #send-contact-form { grid-area: 4 / 5 / 5 / 7; }
 
+#contact-form * {
+    font-size: 1.1rem;
+}
 .grid-container-contact {
     grid-template-columns: repeat(8, 1fr);
     grid-template-rows: repeat(5, 20vh);
@@ -299,8 +304,23 @@ input[type=submit] {
     transform: translate(-50%, -50%);
     color: white;
 }
+#submit-contact-form {
+    font-size: 1.8rem;
+}
 .hero-text:hover {
     cursor: pointer;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #C36B64;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #C36B64;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #C36B64;
 }
 
 

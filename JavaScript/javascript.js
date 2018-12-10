@@ -150,3 +150,10 @@ nav_contact.addEventListener('click', function () {
 /*------------------------------------------------------------
   -                        HOME                              -
   ------------------------------------------------------------ */
+
+/*------------------------------------------------------------
+  -                       CONTACT                            -
+  ------------------------------------------------------------ */
+document.getElementById("submit-contact-form").addEventListener('click', function () {
+    document.getElementById("contact-form").reset();
+})

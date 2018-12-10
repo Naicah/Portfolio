@@ -307,26 +307,27 @@ input[type=submit] {
 /*------------------------------------------------------------
 -                        FOOTER                            -
 ------------------------------------------------------------ */
-#footer-content {
-    display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    width: 100%;
-    padding-right: 2vw;
+footer {
+    background-image: url("/media/footer_bg.svg"); 
+    background-position: bottom; 
+    background-repeat: no-repeat; 
+    background-size: 100vw; 
+    height: 20vh;
+    position: relative
 }
-footer img, #footer-content {
-    position: fixed;
+footer div {
+    position: absolute;
     bottom: 0;
+    right: 0;
+    display: flex;
 }
-#footer-content * {
+footer div * {
     margin: 1vw;
+    color: white;
 }
 footer p {
-    display: inline-block;
-    vertical-align: middle;
-    color: white;
+    font-size: 1.35rem;
 }
 .socialMediaIcon {
     font-size: 2rem;
-    color: white;
 }

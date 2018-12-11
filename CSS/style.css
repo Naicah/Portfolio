@@ -252,9 +252,41 @@ ul {
     text-align: center;
     margin: auto;
 }*/
-
-
-
+#portfolio-ex1, #portfolio-ex2, #portfolio-ex3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform .3s;
+}
+#portfolio-ex1 *, #portfolio-ex2 *, #portfolio-ex3 * {
+    color: white;
+    text-align: center;
+    vertical-align: bottom;
+    font-size: 1.5rem;
+    margin: 0.5rem;
+    max-width: 60%;
+}
+#portfolio-ex1 h3, #portfolio-ex2 h3, #portfolio-ex3 h3 {
+    font-size: 2rem;
+}
+#portfolio-ex1:hover *, #portfolio-ex2:hover *, #portfolio-ex3:hover *{
+    display: none;
+}
+#portfolio-ex1:hover , #portfolio-ex2:hover, #portfolio-ex3:hover  {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.5); 
+}
+#portfolio-ex1:hover {
+    background-image: url("/media/quire.png");
+}
+#portfolio-ex2:hover {
+    background-image: url("/media/landingpage_jsgeni.png");
+}
+#portfolio-ex3:hover {
+    background-image: url("/media/rueda.png");
+}
 /*------------------------------------------------------------
 -                        CONTACT                           -
 ------------------------------------------------------------ */

@@ -37,11 +37,11 @@ window.onload = function() {
     })
 
     /* ----------------- ABOUT -------------------- */
-    if (document.documentElement.scrollTop >= document.getElementById("scrolltop_about").getBoundingClientRect().top - (document.body.getBoundingClientRect().top)) { //Within about section
-        typeWriter(); // Active type writing effect on quote
-    } else {
-        document.getElementById("about-quote-text").innerHTML = "";
-    } 
+    // if (document.documentElement.scrollTop >= document.getElementById("scrolltop_about").getBoundingClientRect().top - (document.body.getBoundingClientRect().top)) { //Within about section
+    //     typeWriter(); // Active type writing effect on quote
+    // } else {
+    //     document.getElementById("about-quote-text").innerHTML = "";
+    // } 
 
     /* ----------------- CONTACT -------------------- */
     //WHEN CLICK ON SEND
@@ -53,10 +53,8 @@ window.onload = function() {
 // WHEN USER SCROLLS THE PAGE
 window.onscroll = function() {
     updateNav(); // Update look of nav  
-    if (document.documentElement.scrollTop >= document.getElementById("scrolltop_about").getBoundingClientRect().top - (document.body.getBoundingClientRect().top)) { //Within about section
+    if (document.documentElement.scrollTop >= (document.getElementById("aboutHeader").getBoundingClientRect().top - (document.body.getBoundingClientRect().top) + 20)) { // Below About header
         typeWriter(); // Active type writing effect on quote
-    } else {
-        document.getElementById("about-quote-text").innerHTML = "";
     } 
 };
  
@@ -181,8 +179,8 @@ function moveToSection (sectionTop, sectionNav) {
 
 var i = 0;
 function typeWriter() {
-    var txt = 'Lorem ipsum typing effect!';
-    var speed = 100;
+    var txt = "With vision and determination, nothing is impossible";
+    var speed = 80;
   if (i < txt.length) {
     document.getElementById("about-quote-text").innerHTML += txt.charAt(i);
     i++;

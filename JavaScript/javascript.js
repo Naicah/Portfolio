@@ -3,7 +3,7 @@ var pos_home;
 var pos_about;
 var pos_portfolio;
 var pos_contact;
-var logo = document.getElementById("logo");
+
 var nav_bg =  document.getElementById("nav_bg");
 var nav_home = document.getElementById("nav-home");
 var nav_about = document.getElementById("nav-about");
@@ -18,11 +18,46 @@ var active_nav_pre = nav_home;
 // WHEN PAGE IS LOADED / UPDATED
 window.onload = function() {
     getSectionPosition(); //Get position of all main sections
+
+    /* ----------------- NAV -------------------- */
     updateNav(); // Update look of nav
+
+    // WHEN CLICK ON SECTION IN NAV
+    document.getElementById("logo").addEventListener('click', function () {
+        moveToSection(pos_home, nav_home);
+    })
+    nav_about.addEventListener('click', function () {
+        moveToSection(pos_about, nav_about);
+    })
+    nav_portfolio.addEventListener('click', function () {
+        moveToSection(pos_portfolio, nav_portfolio);
+    })
+    nav_contact.addEventListener('click', function () {
+        moveToSection(pos_contact, nav_contact);
+    })
+
+    /* ----------------- ABOUT -------------------- */
+    if (document.documentElement.scrollTop >= document.getElementById("scrolltop_about").getBoundingClientRect().top - (document.body.getBoundingClientRect().top)) { //Within about section
+        typeWriter(); // Active type writing effect on quote
+    } else {
+        document.getElementById("about-quote-text").innerHTML = "";
+    } 
+
+    /* ----------------- CONTACT -------------------- */
+    //WHEN CLICK ON SEND
+    document.getElementById("submit-contact-form").addEventListener('click', function () {
+        document.getElementById("contact-form").reset();
+    })
 };
+
 // WHEN USER SCROLLS THE PAGE
 window.onscroll = function() {
-    updateNav(); // Update look of nav
+    updateNav(); // Update look of nav  
+    if (document.documentElement.scrollTop >= document.getElementById("scrolltop_about").getBoundingClientRect().top - (document.body.getBoundingClientRect().top)) { //Within about section
+        typeWriter(); // Active type writing effect on quote
+    } else {
+        document.getElementById("about-quote-text").innerHTML = "";
+    } 
 };
  
 /*------------------------------------------------------------
@@ -43,6 +78,7 @@ window.onscroll = function() {
 
 // CHANGE HEIGHT AND POSITION OF LOGO
 function animateLogo(pos) { 
+    var logo = document.getElementById("logo");
     var nav_height = nav_bg.offsetHeight; // Height of nav background
     var min_height = Math.round(nav_height * 0.65); //65% of nav background height
     var logo_height = logo.offsetHeight; // Height of logo
@@ -108,7 +144,7 @@ function changeNavColor (color){
             break;
     }
 }
-// CHECK WHAT IS THE TOP POSITION OF VIEWPOINT AND CHANGE HUGHLIGT IN NAV ACCORDINGLY
+// CHECK WHAT IS THE TOP POSITION OF VIEWPOINT AND CHANGE HIGHLIGT IN NAV ACCORDINGLY
 function changeActiveNav(pos) {
      if (pos >= pos_contact) { //Within contact section
         activeNav(nav_contact);
@@ -132,19 +168,7 @@ function moveToSection (sectionTop, sectionNav) {
     window.scrollTo(0, (sectionTop + 10));
     activeNav(sectionNav);
 }
-// WHEN CLICK ON SECTION IN NAV
-logo.addEventListener('click', function () {
-    moveToSection(pos_home, nav_home);
-})
-nav_about.addEventListener('click', function () {
-    moveToSection(pos_about, nav_about);
-})
-nav_portfolio.addEventListener('click', function () {
-    moveToSection(pos_portfolio, nav_portfolio);
-})
-nav_contact.addEventListener('click', function () {
-    moveToSection(pos_contact, nav_contact);
-})
+
 
 
 /*------------------------------------------------------------
@@ -152,8 +176,21 @@ nav_contact.addEventListener('click', function () {
   ------------------------------------------------------------ */
 
 /*------------------------------------------------------------
+  -                        ABOUT                             -
+  ------------------------------------------------------------ */
+
+var i = 0;
+function typeWriter() {
+    var txt = 'Lorem ipsum typing effect!';
+    var speed = 100;
+  if (i < txt.length) {
+    document.getElementById("about-quote-text").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+/*------------------------------------------------------------
   -                       CONTACT                            -
   ------------------------------------------------------------ */
-document.getElementById("submit-contact-form").addEventListener('click', function () {
-    document.getElementById("contact-form").reset();
-})
+
+  

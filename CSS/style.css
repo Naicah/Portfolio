@@ -2,6 +2,7 @@
     box-sizing: border-box; 
     font-family: 'Loved by the King', cursive;
 }
+
 body {
     background-image: url("/media/white_marble_blacklines.jpg"); 
     background-color: #cccccc; /* Used if the image is unavailable */
@@ -12,22 +13,26 @@ body {
     background-attachment: fixed; /* Background doesn't scroll with content */
     margin: 0;
     padding: 0;
-
 }
+
 html {
     scroll-behavior: smooth;
 }
+
 .center-in-grid {
     justify-self: center; 
     align-self: center;
 }
+
 .right-in-grid {
     justify-self: right; 
     align-self: center !important;
 }
+
 .mw-80p {
     max-width: 80%;
 }
+
 .mw-50p {
     max-width: 50%;
 }
@@ -35,6 +40,7 @@ html {
     width: 100%;
     height: 100%;
 }
+
 .background-opacity {
     position: fixed;
     top: 0;
@@ -50,64 +56,155 @@ html {
     max-width:80vw;
     margin: 30vh auto 10vh auto;
 }
-[class*="grid-container-"] {
-    display: grid;
-    grid-gap: 20px;
-    padding: 10px;
-}  
+ 
 .hexagon-background, #nav, .footer-bg{
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: contain;
     overflow: visible;
 }
+
 .hg-metalic-pink {
     background-image: url("/media/hexagon_metalic_pink.png");
 }
+
 .hg-glitter-pink {
     background-image: url("/media/hexagon_glitter_pink.png");
 }
+
 .hg-glitter-lightpink {
     background-image: url("/media/hexagon_glitter_lightpink.png");
 }
+
 h1, h2 {
     display: none;
 }
+
 .zoom {
     transition: transform .2s; /* Animation */
 }
+
 .zoom:hover {
     transform: scale(1.4);
 }
-/*------------------------------------------------------------
-  -                     MAIN LAYOUT                          -
-  ------------------------------------------------------------ */
-header { grid-area: header; }
-#home { grid-area: home; }
-#about { grid-area: about; }
-#portfolio { grid-area: portfolio; }
-#contact { grid-area: contact; }
-footer { grid-area: footer; }
 
-.grid-container-body {
-    grid-template-areas:
-        'header'
-        'home'
-        'about'
-        'portolio'
-        'contact'
-        'footer';
-        padding: 0;
-} 
+/*------------------------------------------------------------
+  -                         LAYOUT                           -
+  ------------------------------------------------------------ */
+@media only screen and (min-width: 764px) {
+    header { grid-area: header; }
+    #home { grid-area: home; }
+    #about { grid-area: about; }
+    #portfolio { grid-area: portfolio; }
+    #contact { grid-area: contact; }
+    footer { grid-area: footer; }
+
+    #about-quote {grid-area: 1 / 2 / 3 / 4;}
+    #about-text {grid-area: 2 / 3 / 7 / 7;}
+    #about-contact {grid-area: 4 / 2 / 5 / 3;}
+
+    #portfolio-text { grid-area: 1 / 2 / 4 / 8; width: 80%;}
+    #portfolio-ex1 { grid-area: 1 / 10 / 3 / 14; }
+    #portfolio-ex2 { grid-area: 2 / 6 / 4 / 10; }
+    #portfolio-ex3 { grid-area: 3 / 2 / 5 / 6; }
+
+    #form-contactinfo { grid-area: 1 / 5 / 4 / 8;}
+    #form-msg { grid-area: 2 / 1 / 6 / 5; }
+    #send-contact-form { grid-area: 4 / 5 / 6 / 7; }
+
+
+    .grid-container-body {
+        grid-template-areas:
+            'header'
+            'home'
+            'about'
+            'portolio'
+            'contact'
+            'footer';
+            padding: 0;
+    } 
+
+    .grid-container-about {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 20vh);
+    }
+
+    .grid-container-portfolio {
+        grid-template-columns: repeat(14, 1fr);
+        grid-template-rows: repeat(4, 25vh);
+    } 
+
+    .grid-container-contact {
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: repeat(5, 20vh);
+    } 
+
+    [class*="grid-container-"] {
+        display: grid;
+        /* grid-gap: 20px;
+        padding: 10px; */
+    } 
+}
 
 @media only screen and (max-width: 500px) {
-    .item1 { grid-area: 1 / span 3 / 2 / 4; }
-    .item2 { grid-area: 3 / 3 / 3 / 4; }
-    .item3 { grid-area: 2 / 1 / 2 / 2; }
-    .item4 { grid-area: 2 / 2 / span 2 / 3; }
-    .item5 { grid-area: 3 / 1 / 3 / 2; }
-    .item6 { grid-area: 2 / 3 / 2 / 4; }
-  }
+    #nav_bg {
+        height: 12vh !important;
+    }
+
+    #nav-sections {
+        margin-right: 3vw !important;
+    }
+
+    #nav-about, #nav-portfolio, #nav-contact {
+        font-size: 1.8rem !important;
+    }
+
+    .header-svg {
+        margin-top: 5vh !important;
+        margin-bottom: 5vh !important;
+    }
+    #about-contact {
+        height: 15vh !important;
+    }
+    #portfolio, #contact {
+        justify-content: center;
+    }
+
+    #portfolio-ex1, #portfolio-ex2, #portfolio-ex3, #form-contactinfo, #form-msg { 
+        width: 80vw !important;
+        height: 80vw !important;
+    }
+
+    #portfolio-ex1 h3, #portfolio-ex2 h3, #portfolio-ex3 h3 { 
+        font-size: 1.5rem !important;
+    }
+
+    #portfolio-ex1 p, #portfolio-ex2 p, #portfolio-ex3 p {
+        font-size: 1.2rem !important;
+    }
+
+    .input-area {
+        height: 55% !important;
+    }
+    input[type=text], [type=email], [type=number], select, textarea {
+        padding: 6px !important;
+    }
+    #send-contact-form {
+        height: 10vh !important;
+        width: 100% !important;
+    }    
+
+    footer {
+        height: 15vh !important;
+        background-size: cover !important;
+        
+    }
+
+    footer div {
+        padding: 3vw;
+    }
+
+}
 
 /*------------------------------------------------------------
   -                        NAV                               -
@@ -119,17 +216,21 @@ header {
     top: 0;
     width: 100%;
 }
+
 #nav_bg {
     opacity: 0;
 }
+
 #nav_bg.fadeIn{
     opacity: 1;
     transition: opacity 2s; 
 }
+
 #nav_bg.fadeOut{
     opacity: 0;
     transition: opacity 2s; 
 }
+
 #nav {
     position: fixed;
     top: 0;
@@ -137,12 +238,15 @@ header {
     justify-content: space-between;
     width: 100%;
 }
+
 #nav-home {
     width: 10vw;
 }
+
 #nav-sections {
     margin-right: 20vw;
 }
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -152,6 +256,7 @@ ul {
     position: sticky;
     top: 0;
 }
+
 #nav-about, #nav-portfolio, #nav-contact {
     float: left;
     display: block;
@@ -162,12 +267,15 @@ ul {
     font-family: 'Dancing Script', cursive;
     font-size: 3vw;
 }
+
 #nav-about:hover, #nav-portfolio:hover, #nav-contact:hover, #logo:hover {
     cursor: pointer;
 }
+
 .active {
     border-top: 4px solid white;
 }
+
 #nav-home.active {
     border-style: none;
 }
@@ -179,6 +287,7 @@ ul {
 #home {
     height: 100vh;
 }
+
 #logo {
     height: 80vh;
     width: auto;
@@ -189,69 +298,46 @@ ul {
 -                        ABOUT                             -
 ------------------------------------------------------------ */
 
-#about-quote {grid-area: 1 / 2 / 3 / 4;}
-#about-text {grid-area: 2 / 3 / 7 / 7;}
-#about-contact {grid-area: 4 / 2 / 5 / 3;
-}
-.grid-container-about {
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 20vh);
-}
 #about-text {
     background-image: url("/media/hexagon_metalic_pink_cut.svg");
     background-position: right;
     font-size: 1.1rem;
 }
+
 .about-text-container {
     padding-right:1vw;
     max-width: 45%;
 }
+
 #about-quote, #about-contact {
     font-size: 1.7rem;
 }
+
 #about-contact:hover { 
     cursor: pointer;
 }
+
 #contact-link:link, #contact-link:visited, #contact-link:hover, #contact-link:active{
     color: black; 
     background-color: transparent; 
     text-decoration: none;
 }
+
 #about-text a:link, #about-text a:visited {
     color: #C36B64;
     background-color: transparent; 
     text-decoration: none;
 }
 
-
 #about-text a:hover, #about-text a:active {
     color: #C36B64;
     text-decoration: underline;
 }
 
-
 /*------------------------------------------------------------
 -                        PORTFOLIO                         -
 ------------------------------------------------------------ */
 
-#portfolio-text { grid-area: 1 / 2 / 4 / 8; width: 80%;}
-#portfolio-ex1 { grid-area: 1 / 10 / 3 / 14; }
-#portfolio-ex2 { grid-area: 2 / 6 / 4 / 10; }
-#portfolio-ex3 { grid-area: 3 / 2 / 5 / 6; }
-
-.grid-container-portfolio {
-    grid-template-columns: repeat(14, 1fr);
-    grid-template-rows: repeat(4, 25vh);
-} 
-
-/*#portfolio {
-    padding: 10vh 0;
-}
-#portfolio p {
-    max-width: 80vw;
-    text-align: center;
-    margin: auto;
-}*/
 #portfolio-ex1, #portfolio-ex2, #portfolio-ex3 {
     display: flex;
     flex-direction: column;
@@ -259,6 +345,7 @@ ul {
     align-items: center;
     transition: transform .3s;
 }
+
 #portfolio-ex1 *, #portfolio-ex2 *, #portfolio-ex3 * {
     color: white;
     text-align: center;
@@ -267,41 +354,40 @@ ul {
     margin: 0.5rem;
     max-width: 60%;
 }
+
 #portfolio-ex1 h3, #portfolio-ex2 h3, #portfolio-ex3 h3 {
     font-size: 2rem;
 }
+
 #portfolio-ex1:hover *, #portfolio-ex2:hover *, #portfolio-ex3:hover *{
     display: none;
 }
+
 #portfolio-ex1:hover , #portfolio-ex2:hover, #portfolio-ex3:hover  {
     -ms-transform: scale(1.5); /* IE 9 */
     -webkit-transform: scale(1.5); /* Safari 3-8 */
     transform: scale(1.5); 
 }
+
 #portfolio-ex1:hover {
     background-image: url("/media/quire.png");
 }
+
 #portfolio-ex2:hover {
     background-image: url("/media/landingpage_jsgeni.png");
 }
+
 #portfolio-ex3:hover {
     background-image: url("/media/rueda.png");
 }
+
 /*------------------------------------------------------------
 -                        CONTACT                           -
 ------------------------------------------------------------ */
-
-#form-contactinfo { grid-area: 1 / 5 / 4 / 8;}
-#form-msg { grid-area: 2 / 1 / 6 / 5; }
-#send-contact-form { grid-area: 4 / 5 / 5 / 7; }
-
 #contact-form * {
     font-size: 1.1rem;
 }
-.grid-container-contact {
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(5, 20vh);
-} 
+
 .input-area {
     width: 50%;
     Height: 40%;
@@ -309,17 +395,21 @@ ul {
     flex-direction: column;
     justify-content: space-around;
 }
+
 input[type=text], [type=email], [type=number], select, textarea {
     padding: 12px;
     border: 1px solid white;
     justify-self: center; 
 }
+
 textarea {
     min-height: 70%;
 }
+
 .hero{
     position: relative;
 }
+
 input[type=submit] {
     opacity: 0;
     width: 100%;
@@ -328,6 +418,7 @@ input[type=submit] {
     cursor: pointer;
     align-self: center;
 }
+
 .hero-text{
     text-align: center;
     position: absolute;
@@ -336,12 +427,20 @@ input[type=submit] {
     transform: translate(-50%, -50%);
     color: white;
 }
+
+#send-contact-form {
+    height: 100%;
+    width: 50%;
+}
+
 #submit-contact-form {
     font-size: 1.8rem;
 }
+
 .hero-text:hover {
     cursor: pointer;
 }
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #C36B64;
     opacity: 1; /* Firefox */
@@ -354,7 +453,6 @@ input[type=submit] {
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #C36B64;
 }
-
 
 /*------------------------------------------------------------
 -                        FOOTER                            -
@@ -373,7 +471,7 @@ footer div {
     right: 0;
     display: flex;
 }
-footer div * {
+footer div p, footer div i {
     margin: 1vw;
     color: white;
 }

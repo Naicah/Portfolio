@@ -61,7 +61,8 @@ window.onscroll = function() {
 /*------------------------------------------------------------
   -                        MAIN                              -
   ------------------------------------------------------------ */
-// GET TOP POSITION OF ALL MAIN SECTIONS
+
+  // GET TOP POSITION OF ALL MAIN SECTIONS
   function getSectionPosition () {
     pos_body = document.body.getBoundingClientRect();
     pos_home = document.getElementById("home").getBoundingClientRect().top - (pos_body.top);
@@ -82,15 +83,22 @@ function animateLogo(pos) {
     var logo_height = logo.offsetHeight; // Height of logo
     var logo_space; // Space for logo to fit in
     var nav_bg_space = Math.round(nav_height * 0.8); //Fit within nav background
-    var screen_height = window.innerHeight; // Height of viewpoint
-   
+    var screen_height = window.innerHeight; // Height of viewpoint   
+
     if (pos >= pos_about) { // Below #About = no logo animation
         logo_height = min_height; // Set logo size to minimal size
         logo_space  = nav_bg_space; // Fit within nav_bg
 
     } else { // Within home = logo animation
-        logo_space = screen_height - pos; // Height of space between top of viewpoint and bottom of #Home (since home = 100% och screen height)
+
+        if (window.innerWidth < 500) {
+           logo_space = window.innerWidth; // Width of viewpoint
+        } else {
+            logo_space = screen_height - pos; // Height of space between top of viewpoint and bottom of #Home (since home = 100% och screen height)
+        }
+
         logo_height = (logo_space/10) * 8; // Set logo size to 80% of logo_space
+      
 
         if (logo_height < min_height) { // Logo is to small
             logo_height = min_height; // Set logo size to minimal size
@@ -98,14 +106,23 @@ function animateLogo(pos) {
         } else if (logo_height == min_height) { // Logo is minimal size
             logo_space  = nav_bg_space; // Fit within nav_bg
         }
-    }
-    var pos_pos = (logo_space/2) - (logo_height/2) // Top position of logo 
-    var left_pos = ((window.innerWidth * (logo_space / screen_height)) / 2) - (logo_height/2); //Left position of logo
 
+     
+    }
+
+    if (window.innerWidth < 500) {
+        var left_pos = left_pos = ((window.innerWidth * logo_space ) / 2) - (logo_height/2); //Left position of logo
+    } else {
+        left_pos = ((window.innerWidth * (logo_space / screen_height)) / 2) - (logo_height/2); //Left position of logo
+    }
+
+    var pos_pos = (logo_space/2) - (logo_height/2) // Top position of logo 
+   
     logo.style.top = pos_pos + 'px'; // Set top position
     logo.style.left = left_pos + 'px'; // Set left position
     logo.style.height = logo_height + 'px'; //Set height
 }
+
 // FADE NAV BACKGROUND IN OR OUT DEPENDING ON POSITION OF VIEWPOINT
 function fadeNav(pos) {
     var nav_height = nav_bg.offsetHeight; //Height of nav background
@@ -121,12 +138,14 @@ function fadeNav(pos) {
         changeNavColor("pink"); // Change color of text in nav to pink
     }
 }
+
 // CHANGE HIGHLIGHT IN NAV
 function activeNav(active_nav_new) {
     active_nav_pre.classList.toggle("active"); // Remove highligt from previous section
     active_nav_new.classList.toggle("active"); // Add highligHt to new section
     active_nav_pre = active_nav_new; // Store new section in memory as previous section
 }
+
 // CHANGE COLOR ON TEXT IN NAV
 function changeNavColor (color){
     switch (color) {
@@ -142,6 +161,7 @@ function changeNavColor (color){
             break;
     }
 }
+
 // CHECK WHAT IS THE TOP POSITION OF VIEWPOINT AND CHANGE HIGHLIGT IN NAV ACCORDINGLY
 function changeActiveNav(pos) {
      if (pos >= pos_contact) { //Within contact section
@@ -154,6 +174,7 @@ function changeActiveNav(pos) {
         activeNav(nav_home);
     }
 }
+
 // UPDATE LOOK OF NAV
 function updateNav() {
     var pos = document.documentElement.scrollTop; //Find top position
@@ -161,13 +182,12 @@ function updateNav() {
     changeActiveNav(pos); // Change what section in nav that is highlighted
     animateLogo(pos); // Change height and position of logo
 }
+
 // MOVE TO GIVEN SECTION ON CLICK IN NAV
 function moveToSection (sectionTop, sectionNav) {
     window.scrollTo(0, (sectionTop + 10));
     activeNav(sectionNav);
 }
-
-
 
 /*------------------------------------------------------------
   -                        HOME                              -

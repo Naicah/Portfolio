@@ -21,23 +21,11 @@ var active_nav_pre = nav_home;
 window.onload = function() {
 
     viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-    // var about_text = document.getElementById("about-text");
+    var about_text = document.getElementById("about-text");
 
-    // if (viewportWidth < 764) { // Mobile
-    //     console.log('mobile viewport');
-    //     document.getElementById("about-text-p").classList.remove("right-in-grid");
-    //     document.getElementById("about-text-p").classList.remove("about-text-container");
-    //     about_text.classList.remove("hexagon-background");
-    //     about_text.classList.remove("hg-metalic-pink-cut");
-    //     about_text.classList.add("metalic-pink-background");
-
-    // } else {
-    //     console.log('desktop viewport');
-    // }
-
-   
-
-    
+    if (viewportWidth < 764) { // Mobile
+        changeNavColor("white");
+    } 
 
     getSectionPosition(); //Get position of all main sections
 

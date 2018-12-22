@@ -153,8 +153,6 @@ h1, h2 {
 
     [class*="grid-container-"] {
         display: grid;
-        /* grid-gap: 20px;
-        padding: 10px; */
     } 
 
 }
@@ -162,10 +160,23 @@ h1, h2 {
 @media only screen and (max-width: 764px) {
     #nav_bg {
         height: 12vh !important;
+        opacity: 1 !important;
     }
 
+    #nav-home {
+        display: none;
+    }
+   
     #nav-sections {
-        margin-right: 3vw !important;
+        width: 100vw !important;
+        margin-right: 0 !important;
+    }
+
+    #nav-sections ul {
+        width: 100%;
+        display: flex;
+        padding: 0 1rem;
+        justify-content: space-around;
     }
 
     #nav-about, #nav-portfolio, #nav-contact {
@@ -175,6 +186,19 @@ h1, h2 {
     .header-svg {
         margin-top: 5vh !important;
         margin-bottom: 5vh !important;
+    }
+
+    #home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #logo {
+        padding: 1rem;
+        width: 100% !important;
+        height: auto !important;
+        position: static !important;
     }
 
     #about-contact {

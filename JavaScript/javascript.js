@@ -26,10 +26,11 @@ var i = 0;
 window.onload = function() {
 
     viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-    var about_text = document.getElementById("about-text");
+    
 
     if (viewportWidth < 764) { // Mobile
         changeNavColor("white");
+        document.getElementById("about-quote-text").innerHTML = " With vision and determination, nothing is impossible";
     } 
 
     getSectionPosition(); //Get position of all main sections
@@ -210,7 +211,6 @@ function moveToSection (sectionTop, sectionNav) {
   ------------------------------------------------------------ */
 
 function typeWriter() {
-    console.log("typeWriter");
     var txt = "With vision and determination, nothing is impossible";
     var speed = 500;
   if (i < txt.length) {

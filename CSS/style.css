@@ -201,8 +201,15 @@ h1, h2 {
         position: static !important;
     }
 
+    .metalic-pink-background {
+        background-image: url("/media/metalic_pink_croked_big.png");
+        padding-top: 8rem !important;
+        padding-bottom: 8rem !important;
+    }
+    
     #about-contact {
         height: 15vh !important;
+        margin: 0 !important;
     }
     #portfolio, #contact {
         justify-content: center;

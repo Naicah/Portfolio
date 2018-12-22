@@ -6,12 +6,17 @@ var pos_about;
 var pos_portfolio;
 var pos_contact;
 
+var pos_top_about_header; 
+var pos_bottom_about_header;
+
 var nav_bg =  document.getElementById("nav_bg");
 var nav_home = document.getElementById("nav-home");
 var nav_about = document.getElementById("nav-about");
 var nav_portfolio = document.getElementById("nav-portfolio");
 var nav_contact = document.getElementById("nav-contact");
 var active_nav_pre = nav_home;
+
+var i = 0;
 
 /*------------------------------------------------------------
   -                      ON LOAD / SCROLL                    -
@@ -46,12 +51,7 @@ window.onload = function() {
         moveToSection(pos_contact, nav_contact);
     })
 
-    /* ----------------- ABOUT -------------------- */
-    // if (document.documentElement.scrollTop >= document.getElementById("scrolltop_about").getBoundingClientRect().top - (document.body.getBoundingClientRect().top)) { //Within about section
-    //     typeWriter(); // Active type writing effect on quote
-    // } else {
-    //     document.getElementById("about-quote-text").innerHTML = "";
-    // } 
+    
 
     /* ----------------- CONTACT -------------------- */
     //WHEN CLICK ON SEND
@@ -63,11 +63,15 @@ window.onload = function() {
 // WHEN USER SCROLLS THE PAGE
 window.onscroll = function() {
     updateNav(); // Update look of nav  
-    if (viewportWidth > 764) { // Desktop
-        console.log(' onscroll Desktop viewport');
-        if (document.documentElement.scrollTop >= (document.getElementById("aboutHeader").getBoundingClientRect().top - (document.body.getBoundingClientRect().top) + 20)) { // Below About header
+    if (viewportWidth > 764) { // Desktop      
+        var pos = document.documentElement.scrollTop;
+      
+        if (pos >= pos_top_about_header && pos <= pos_bottom_about_header) {
             typeWriter(); // Active type writing effect on quote
-        } 
+        } else {
+            document.getElementById("about-quote-text").innerHTML = "";
+            i = 0;
+        }
     }
 };
 
@@ -86,6 +90,10 @@ function getSectionPosition () {
     pos_about = document.getElementById("about").getBoundingClientRect().top - (pos_body.top);
     pos_portfolio = document.getElementById("portfolio").getBoundingClientRect().top - (pos_body.top);
     pos_contact = document.getElementById("contact").getBoundingClientRect().top - (pos_body.top);
+
+    pos_top_about_header = document.getElementById("aboutHeader").getBoundingClientRect().top - (pos_body.top);
+    pos_bottom_about_header = pos_top_about_header + document.getElementById("aboutHeader").offsetHeight;
+ 
 }
 
 /*------------------------------------------------------------
@@ -181,7 +189,6 @@ function changeActiveNav(pos) {
 function updateNav() {
     var pos = document.documentElement.scrollTop; //Find top position  
     if (viewportWidth > 764) { // Desktop
-        console.log(' updateNav Desktop viewport');
         fadeNav(pos); // Show or hide nav backgorund
         animateLogo(pos); // Change height and position of logo
     }
@@ -202,10 +209,10 @@ function moveToSection (sectionTop, sectionNav) {
   -                        ABOUT                             -
   ------------------------------------------------------------ */
 
-var i = 0;
 function typeWriter() {
+    console.log("typeWriter");
     var txt = "With vision and determination, nothing is impossible";
-    var speed = 80;
+    var speed = 500;
   if (i < txt.length) {
     document.getElementById("about-quote-text").innerHTML += txt.charAt(i);
     i++;

@@ -1,4 +1,6 @@
 // Elements
+var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
 var pos_home;
 var pos_about;
 var pos_portfolio;
@@ -17,6 +19,14 @@ var active_nav_pre = nav_home;
   
 // WHEN PAGE IS LOADED / UPDATED
 window.onload = function() {
+
+    
+    if (viewportWidth > 764) { 
+        console.log('Desktop viewport');
+    } else {
+        console.log('Mobile viewport');
+    }
+
     getSectionPosition(); //Get position of all main sections
 
     /* ----------------- NAV -------------------- */
@@ -53,16 +63,18 @@ window.onload = function() {
 // WHEN USER SCROLLS THE PAGE
 window.onscroll = function() {
     updateNav(); // Update look of nav  
-    if (document.documentElement.scrollTop >= (document.getElementById("aboutHeader").getBoundingClientRect().top - (document.body.getBoundingClientRect().top) + 20)) { // Below About header
-        typeWriter(); // Active type writing effect on quote
-    } 
+    if (viewportWidth > 764) { // Desktop
+        console.log(' onscroll Desktop viewport');
+        if (document.documentElement.scrollTop >= (document.getElementById("aboutHeader").getBoundingClientRect().top - (document.body.getBoundingClientRect().top) + 20)) { // Below About header
+            typeWriter(); // Active type writing effect on quote
+        } 
+    }
 };
  
 /*------------------------------------------------------------
   -                        MAIN                              -
   ------------------------------------------------------------ */
-
-  // GET TOP POSITION OF ALL MAIN SECTIONS
+// GET TOP POSITION OF ALL MAIN SECTIONS
   function getSectionPosition () {
     pos_body = document.body.getBoundingClientRect();
     pos_home = document.getElementById("home").getBoundingClientRect().top - (pos_body.top);
@@ -83,22 +95,15 @@ function animateLogo(pos) {
     var logo_height = logo.offsetHeight; // Height of logo
     var logo_space; // Space for logo to fit in
     var nav_bg_space = Math.round(nav_height * 0.8); //Fit within nav background
-    var screen_height = window.innerHeight; // Height of viewpoint   
-
+    var screen_height = window.innerHeight; // Height of viewpoint
+   
     if (pos >= pos_about) { // Below #About = no logo animation
         logo_height = min_height; // Set logo size to minimal size
         logo_space  = nav_bg_space; // Fit within nav_bg
 
     } else { // Within home = logo animation
-
-        if (window.innerWidth < 500) {
-           logo_space = window.innerWidth; // Width of viewpoint
-        } else {
-            logo_space = screen_height - pos; // Height of space between top of viewpoint and bottom of #Home (since home = 100% och screen height)
-        }
-
+        logo_space = screen_height - pos; // Height of space between top of viewpoint and bottom of #Home (since home = 100% och screen height)
         logo_height = (logo_space/10) * 8; // Set logo size to 80% of logo_space
-      
 
         if (logo_height < min_height) { // Logo is to small
             logo_height = min_height; // Set logo size to minimal size
@@ -106,18 +111,10 @@ function animateLogo(pos) {
         } else if (logo_height == min_height) { // Logo is minimal size
             logo_space  = nav_bg_space; // Fit within nav_bg
         }
-
-     
     }
-
-    if (window.innerWidth < 500) {
-        var left_pos = left_pos = ((window.innerWidth * logo_space ) / 2) - (logo_height/2); //Left position of logo
-    } else {
-        left_pos = ((window.innerWidth * (logo_space / screen_height)) / 2) - (logo_height/2); //Left position of logo
-    }
-
     var pos_pos = (logo_space/2) - (logo_height/2) // Top position of logo 
-   
+    var left_pos = ((window.innerWidth * (logo_space / screen_height)) / 2) - (logo_height/2); //Left position of logo
+
     logo.style.top = pos_pos + 'px'; // Set top position
     logo.style.left = left_pos + 'px'; // Set left position
     logo.style.height = logo_height + 'px'; //Set height
@@ -177,10 +174,13 @@ function changeActiveNav(pos) {
 
 // UPDATE LOOK OF NAV
 function updateNav() {
-    var pos = document.documentElement.scrollTop; //Find top position
-    fadeNav(pos); // Show or hide nav backgorund
+    var pos = document.documentElement.scrollTop; //Find top position  
+    if (viewportWidth > 764) { // Desktop
+        console.log(' updateNav Desktop viewport');
+        fadeNav(pos); // Show or hide nav backgorund
+        animateLogo(pos); // Change height and position of logo
+    }
     changeActiveNav(pos); // Change what section in nav that is highlighted
-    animateLogo(pos); // Change height and position of logo
 }
 
 // MOVE TO GIVEN SECTION ON CLICK IN NAV

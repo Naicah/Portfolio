@@ -75,6 +75,18 @@ html {
 .hg-glitter-lightpink {
     background-image: url("/media/hexagon_glitter_lightpink.png");
 }
+.hg-metalic-pink-cut {
+    background-image: url("/media/hexagon_metalic_pink_cut.svg");
+    background-position: right;
+}
+
+.metalic-pink-background {
+    background-image: url("/media/metalic_pink_croked.png");
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: auto 100%;
+    overflow: visible;
+}
 
 h1, h2 {
     display: none;
@@ -99,9 +111,9 @@ h1, h2 {
     #contact { grid-area: contact; }
     footer { grid-area: footer; }
 
-    #about-quote {grid-area: 1 / 2 / 3 / 4;}
-    #about-text {grid-area: 2 / 3 / 7 / 7;}
-    #about-contact {grid-area: 4 / 2 / 5 / 3;}
+    #about-quote {grid-area: 1 / 1 / 3 / 4;}
+    #about-text {grid-area: 3 / 1 / 8 / 7;}
+    #about-contact {grid-area: 7 / 5 / 9 / 7;}
 
     #portfolio-text { grid-area: 1 / 2 / 4 / 8; width: 80%;}
     #portfolio-ex1 { grid-area: 1 / 10 / 3 / 14; }
@@ -126,7 +138,7 @@ h1, h2 {
 
     .grid-container-about {
         grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(6, 20vh);
+        grid-template-rows: repeat(8, 20vh);
     }
 
     .grid-container-portfolio {
@@ -144,9 +156,10 @@ h1, h2 {
         /* grid-gap: 20px;
         padding: 10px; */
     } 
+
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 764px) {
     #nav_bg {
         height: 12vh !important;
     }
@@ -163,6 +176,7 @@ h1, h2 {
         margin-top: 5vh !important;
         margin-bottom: 5vh !important;
     }
+
     #about-contact {
         height: 15vh !important;
     }
@@ -299,18 +313,23 @@ ul {
 ------------------------------------------------------------ */
 
 #about-text {
-    background-image: url("/media/hexagon_metalic_pink_cut.svg");
-    background-position: right;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
 }
 
-.about-text-container {
-    padding-right:1vw;
-    max-width: 45%;
-}
+/* #about-text-p {
+    margin: 1rem 1.5rem;
+} */
 
 #about-quote, #about-contact {
     font-size: 1.7rem;
+}
+
+#about-contact {
+    height: 60%;
+    margin-top: 30%;
 }
 
 #about-contact:hover { 

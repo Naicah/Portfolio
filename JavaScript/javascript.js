@@ -1,5 +1,5 @@
 // Elements
-var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+var viewportWidth;
 
 var pos_home;
 var pos_about;
@@ -20,12 +20,24 @@ var active_nav_pre = nav_home;
 // WHEN PAGE IS LOADED / UPDATED
 window.onload = function() {
 
+    viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+    // var about_text = document.getElementById("about-text");
+
+    // if (viewportWidth < 764) { // Mobile
+    //     console.log('mobile viewport');
+    //     document.getElementById("about-text-p").classList.remove("right-in-grid");
+    //     document.getElementById("about-text-p").classList.remove("about-text-container");
+    //     about_text.classList.remove("hexagon-background");
+    //     about_text.classList.remove("hg-metalic-pink-cut");
+    //     about_text.classList.add("metalic-pink-background");
+
+    // } else {
+    //     console.log('desktop viewport');
+    // }
+
+   
+
     
-    if (viewportWidth > 764) { 
-        console.log('Desktop viewport');
-    } else {
-        console.log('Mobile viewport');
-    }
 
     getSectionPosition(); //Get position of all main sections
 
@@ -70,12 +82,17 @@ window.onscroll = function() {
         } 
     }
 };
+
+//WHEN PAGE IS RESIZED
+window.onresize = function() {
+    viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+};
  
 /*------------------------------------------------------------
   -                        MAIN                              -
   ------------------------------------------------------------ */
 // GET TOP POSITION OF ALL MAIN SECTIONS
-  function getSectionPosition () {
+function getSectionPosition () {
     pos_body = document.body.getBoundingClientRect();
     pos_home = document.getElementById("home").getBoundingClientRect().top - (pos_body.top);
     pos_about = document.getElementById("about").getBoundingClientRect().top - (pos_body.top);

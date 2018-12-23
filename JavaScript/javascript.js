@@ -212,7 +212,7 @@ function moveToSection (sectionTop, sectionNav) {
 
 function typeWriter() {
     var txt = "With vision and determination, nothing is impossible";
-    var speed = 500;
+    var speed = 100;
   if (i < txt.length) {
     document.getElementById("about-quote-text").innerHTML += txt.charAt(i);
     i++;

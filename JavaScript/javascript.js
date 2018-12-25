@@ -52,8 +52,6 @@ window.onload = function() {
         moveToSection(pos_contact, nav_contact);
     })
 
-    
-
     /* ----------------- CONTACT -------------------- */
     //WHEN CLICK ON SEND
     document.getElementById("submit-contact-form").addEventListener('click', function () {
@@ -94,7 +92,6 @@ function getSectionPosition () {
 
     pos_top_about_header = document.getElementById("aboutHeader").getBoundingClientRect().top - (pos_body.top);
     pos_bottom_about_header = pos_top_about_header + document.getElementById("aboutHeader").offsetHeight;
- 
 }
 
 /*------------------------------------------------------------
@@ -209,8 +206,8 @@ function moveToSection (sectionTop, sectionNav) {
 /*------------------------------------------------------------
   -                        ABOUT                             -
   ------------------------------------------------------------ */
-
-function typeWriter() {
+// DISPLAY ABOUT QUOTE WITH TYPE WRITER EFFECT - Imported
+function typeWriter() { 
     var txt = "With vision and determination, nothing is impossible";
     var speed = 100;
   if (i < txt.length) {

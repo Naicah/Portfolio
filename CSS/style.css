@@ -128,7 +128,6 @@ h1, h2 {
     #form-msg { grid-area: 2 / 1 / 6 / 5; }
     #send-contact-form { grid-area: 4 / 5 / 6 / 7; }
 
-
     .grid-container-body {
         grid-template-areas:
             'header'
@@ -215,6 +214,7 @@ h1, h2 {
         height: 15vh !important;
         margin: 0 !important;
     }
+
     #portfolio, #contact {
         justify-content: center;
     }
@@ -235,9 +235,11 @@ h1, h2 {
     .input-area {
         height: 55% !important;
     }
+
     input[type=text], [type=email], [type=number], select, textarea {
         padding: 6px !important;
     }
+
     #send-contact-form {
         height: 10vh !important;
         width: 100% !important;
@@ -246,13 +248,11 @@ h1, h2 {
     footer {
         height: 15vh !important;
         background-size: cover !important;
-        
     }
 
     footer div {
         padding: 3vw;
     }
-
 }
 
 /*------------------------------------------------------------
@@ -515,19 +515,23 @@ footer {
     height: 30vh;
     position: relative
 }
+
 footer div {
     position: absolute;
     bottom: 0;
     right: 0;
     display: flex;
 }
+
 footer div p, footer div i {
     margin: 1vw;
     color: white;
 }
+
 footer p {
     font-size: 1.35rem;
 }
+
 .socialMediaIcon {
     font-size: 2rem;
 }

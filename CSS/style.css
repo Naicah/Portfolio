@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url("../Media/white_marble_blacklines.jpg"); 
+    background-image: url("./Media/white_marble_blacklines.jpg"); 
     background-color: #cccccc; /* Used if the image is unavailable */
     max-width: 100%; /* Never bigger than original img */
     background-position: center; 

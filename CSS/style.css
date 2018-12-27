@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url("./Media/white_marble_blacklines.jpg"); 
+    background-image: url("../Media/white_marble_blacklines.jpg"); 
     max-width: 100%; /* Never bigger than original img */
     background-position: center; 
     background-repeat: no-repeat; 
@@ -68,23 +68,23 @@ html {
 }
 
 .hg-metalic-pink {
-    background-image: url("./Media/hexagon_metalic_pink.png");
+    background-image: url("../Media/hexagon_metalic_pink.png");
 }
 
 .hg-glitter-pink {
-    background-image: url("./Media/hexagon_glitter_pink.png");
+    background-image: url("../Media/hexagon_glitter_pink.png");
 }
 
 .hg-glitter-lightpink {
-    background-image: url("./Media/hexagon_glitter_lightpink.png");
+    background-image: url("../Media/hexagon_glitter_lightpink.png");
 }
 .hg-metalic-pink-cut {
-    background-image: url("./Media/hexagon_metalic_pink_cut.svg");
+    background-image: url("../Media/hexagon_metalic_pink_cut.svg");
     background-position: right;
 }
 
 .metalic-pink-background {
-    background-image: url("./Media/metalic_pink_croked.png");
+    background-image: url("../Media/metalic_pink_crooked.png");
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: auto 100%;
@@ -204,7 +204,7 @@ h1, h2 {
     }
 
     .metalic-pink-background {
-        background-image: url("./Media/metalic_pink_croked_big.png");
+        background-image: url("../Media/metalic_pink_crooked_big.png");
         padding-top: 8rem !important;
         padding-bottom: 8rem !important;
     }
@@ -419,15 +419,15 @@ ul {
 }
 
 #portfolio-ex1:hover {
-    background-image: url("./Media/quire.png");
+    background-image: url("../Media/quire.png");
 }
 
 #portfolio-ex2:hover {
-    background-image: url("./Media/landingpage_jsgeni.png");
+    background-image: url("../Media/landingpage_jsgeni.png");
 }
 
 #portfolio-ex3:hover {
-    background-image: url("./Media/rueda.png");
+    background-image: url("../Media/rueda.png");
 }
 
 /*------------------------------------------------------------
@@ -507,7 +507,7 @@ input[type=submit] {
 -                        FOOTER                            -
 ------------------------------------------------------------ */
 footer {
-    background-image: url("./Media/footer_bg.svg"); 
+    background-image: url("../Media/footer_bg.svg"); 
     background-position: bottom; 
     background-repeat: no-repeat; 
     background-size: 100vw; 
